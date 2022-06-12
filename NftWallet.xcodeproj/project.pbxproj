@@ -26,6 +26,11 @@
 		029E17052855F1A000827717 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17042855F1A000827717 /* HUD.swift */; };
 		029E17082855F1C800827717 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 029E17072855F1C800827717 /* ActivityIndicatorView */; };
 		029E170B2855F4A700827717 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E170A2855F4A700827717 /* Environment.swift */; };
+		029E171028560FCF00827717 /* PhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E170F28560FCF00827717 /* PhotosManager.swift */; };
+		029E17122856102600827717 /* PhotoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17112856102600827717 /* PhotoAsset.swift */; };
+		029E1714285610D500827717 /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E1713285610D500827717 /* PhotoListView.swift */; };
+		029E17162856114B00827717 /* PhotoListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17152856114B00827717 /* PhotoListVM.swift */; };
+		029E17182856179000827717 /* ScrollView+Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17172856179000827717 /* ScrollView+Refreshable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +50,11 @@
 		029E17012855EFA900827717 /* NftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftListView.swift; sourceTree = "<group>"; };
 		029E17042855F1A000827717 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		029E170A2855F4A700827717 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		029E170F28560FCF00827717 /* PhotosManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosManager.swift; sourceTree = "<group>"; };
+		029E17112856102600827717 /* PhotoAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAsset.swift; sourceTree = "<group>"; };
+		029E1713285610D500827717 /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
+		029E17152856114B00827717 /* PhotoListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListVM.swift; sourceTree = "<group>"; };
+		029E17172856179000827717 /* ScrollView+Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Refreshable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,7 @@
 			children = (
 				0233862F2855C9260081AC46 /* RootVM.swift */,
 				029E16F22855E5DE00827717 /* NftListVM.swift */,
+				029E17152856114B00827717 /* PhotoListVM.swift */,
 				023386342855CA3A0081AC46 /* Navigation+TCA.swift */,
 			);
 			path = TCA;
@@ -117,6 +128,7 @@
 				029E17032855F19500827717 /* Component */,
 				0233861B2855C57B0081AC46 /* RootView.swift */,
 				029E17012855EFA900827717 /* NftListView.swift */,
+				029E1713285610D500827717 /* PhotoListView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -126,6 +138,7 @@
 			children = (
 				029E16F92855E71500827717 /* OpenSea */,
 				023386322855C9C20081AC46 /* DataStore.swift */,
+				029E170F28560FCF00827717 /* PhotosManager.swift */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -134,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				029E16F52855E67600827717 /* NftAsset.swift */,
+				029E17112856102600827717 /* PhotoAsset.swift */,
 				029E16F72855E69F00827717 /* Error.swift */,
 			);
 			path = Model;
@@ -152,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				029E17042855F1A000827717 /* HUD.swift */,
+				029E17172856179000827717 /* ScrollView+Refreshable.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -263,16 +278,21 @@
 				029E16F82855E69F00827717 /* Error.swift in Sources */,
 				023386352855CA3A0081AC46 /* Navigation+TCA.swift in Sources */,
 				023386302855C9260081AC46 /* RootVM.swift in Sources */,
+				029E17122856102600827717 /* PhotoAsset.swift in Sources */,
 				023386332855C9C20081AC46 /* DataStore.swift in Sources */,
 				0233861C2855C57B0081AC46 /* RootView.swift in Sources */,
 				029E17002855E93700827717 /* OpenSeaGetAssets.swift in Sources */,
+				029E171028560FCF00827717 /* PhotosManager.swift in Sources */,
 				029E16FE2855E79900827717 /* OpenSeaClient.swift in Sources */,
 				0233861A2855C57B0081AC46 /* NftWalletApp.swift in Sources */,
+				029E17162856114B00827717 /* PhotoListVM.swift in Sources */,
+				029E17182856179000827717 /* ScrollView+Refreshable.swift in Sources */,
 				029E170B2855F4A700827717 /* Environment.swift in Sources */,
 				029E16F62855E67600827717 /* NftAsset.swift in Sources */,
 				029E17052855F1A000827717 /* HUD.swift in Sources */,
 				029E17022855EFA900827717 /* NftListView.swift in Sources */,
 				029E16F32855E5DE00827717 /* NftListVM.swift in Sources */,
+				029E1714285610D500827717 /* PhotoListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +425,7 @@
 				DEVELOPMENT_TEAM = 39KF2M8S75;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "アルバムの写真を選択します";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -436,6 +457,7 @@
 				DEVELOPMENT_TEAM = 39KF2M8S75;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "アルバムの写真を選択します";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

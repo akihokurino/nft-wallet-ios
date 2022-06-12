@@ -14,11 +14,14 @@ enum RootVM {
             let keystoreManager = KeystoreManager([keystore])
             let pkData = try! keystoreManager.UNSAFE_getPrivateKeyData(password: "web3swift", account: address).toHexString()
             print("秘密鍵（開発用）: \(pkData)")
-            
+
             state.nftListView = NftListVM.State(address: address)
-            
+            state.photoListView = PhotoListVM.State(address: address)
+
             return .none
         case .nftListView(let action):
+            return .none
+        case .photoListView(let action):
             return .none
         }
     }
@@ -33,6 +36,17 @@ enum RootVM {
             )
         }
     )
+    .connect(
+        PhotoListVM.reducer,
+        state: \.photoListView,
+        action: /RootVM.Action.photoListView,
+        environment: { env in
+            PhotoListVM.Environment(
+                mainQueue: env.mainQueue,
+                backgroundQueue: env.backgroundQueue
+            )
+        }
+    )
 }
 
 extension RootVM {
@@ -40,10 +54,12 @@ extension RootVM {
         case initialize
 
         case nftListView(NftListVM.Action)
+        case photoListView(PhotoListVM.Action)
     }
 
     struct State: Equatable {
         var nftListView: NftListVM.State?
+        var photoListView: PhotoListVM.State?
     }
 
     struct Environment {

@@ -22,13 +22,23 @@ struct RootView: View {
                         Text("NFT")
                     }
                 }.tag(1)
-                NavigationView {}
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "camera.fill")
-                            Text("カメラロール")
-                        }
-                    }.tag(2)
+                
+                NavigationView {
+                    IfLetStore(
+                        store.scope(
+                            state: { $0.photoListView },
+                            action: RootVM.Action.photoListView
+                        ),
+                        then: PhotoListView.init(store:)
+                    )
+                }
+                .tabItem {
+                    VStack {
+                        Image(systemName: "camera.fill")
+                        Text("カメラロール")
+                    }
+                }.tag(2)
+                
                 NavigationView {}
                     .tabItem {
                         VStack {
