@@ -14,15 +14,20 @@ struct RootView: View {
                             Text("NFT")
                         }
                     }.tag(1)
-            }
-            TabView {
+                NavigationView {}
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "camera.fill")
+                            Text("カメラロール")
+                        }
+                    }.tag(2)
                 NavigationView {}
                     .tabItem {
                         VStack {
                             Image(systemName: "wallet.pass")
                             Text("ウォレット")
                         }
-                    }.tag(2)
+                    }.tag(3)
             }
             .onAppear {
                 viewStore.send(.initialize)
