@@ -7,13 +7,21 @@ struct RootView: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             TabView {
-                NavigationView {}
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "folder")
-                            Text("NFT")
-                        }
-                    }.tag(1)
+                NavigationView {
+                    IfLetStore(
+                        store.scope(
+                            state: { $0.nftListView },
+                            action: RootVM.Action.nftListView
+                        ),
+                        then: NftListView.init(store:)
+                    )
+                }
+                .tabItem {
+                    VStack {
+                        Image(systemName: "folder")
+                        Text("NFT")
+                    }
+                }.tag(1)
                 NavigationView {}
                     .tabItem {
                         VStack {
