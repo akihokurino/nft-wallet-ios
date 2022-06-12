@@ -42,7 +42,7 @@ struct OpenSeaGetAssetsResponse: Codable, Equatable {
 }
 
 struct NftAssetResponse: Codable, Identifiable, Equatable, Hashable {
-    let id: String
+    let id: Int
     let image_url: String
     let name: String
     let description: String
@@ -55,6 +55,4 @@ struct NftContractResponse: Codable, Equatable, Hashable {
     let address: String
     let name: String
     let schema_name: String
-    let description: String
-    let permalink: String
 }

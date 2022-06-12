@@ -13,7 +13,7 @@ enum RootVM {
 
             let keystoreManager = KeystoreManager([keystore])
             let pkData = try! keystoreManager.UNSAFE_getPrivateKeyData(password: "web3swift", account: address).toHexString()
-            print("secret: \(pkData)")
+            print("秘密鍵（開発用）: \(pkData)")
             
             state.nftListView = NftListVM.State(address: address)
             

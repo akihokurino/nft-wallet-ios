@@ -25,6 +25,7 @@
 		029E17022855EFA900827717 /* NftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17012855EFA900827717 /* NftListView.swift */; };
 		029E17052855F1A000827717 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17042855F1A000827717 /* HUD.swift */; };
 		029E17082855F1C800827717 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 029E17072855F1C800827717 /* ActivityIndicatorView */; };
+		029E170B2855F4A700827717 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E170A2855F4A700827717 /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		029E16FF2855E93700827717 /* OpenSeaGetAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSeaGetAssets.swift; sourceTree = "<group>"; };
 		029E17012855EFA900827717 /* NftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftListView.swift; sourceTree = "<group>"; };
 		029E17042855F1A000827717 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		029E170A2855F4A700827717 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				0233862D2855C8F90081AC46 /* TCA */,
 				0233862E2855C8FF0081AC46 /* UI */,
 				023386192855C57B0081AC46 /* NftWalletApp.swift */,
+				029E170A2855F4A700827717 /* Environment.swift */,
 				0233861D2855C57C0081AC46 /* Assets.xcassets */,
 				0233861F2855C57C0081AC46 /* Preview Content */,
 			);
@@ -160,6 +163,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 023386242855C57C0081AC46 /* Build configuration list for PBXNativeTarget "NftWallet" */;
 			buildPhases = (
+				029E17092855F41700827717 /* Build Env */,
 				023386122855C57B0081AC46 /* Sources */,
 				023386132855C57B0081AC46 /* Frameworks */,
 				023386142855C57B0081AC46 /* Resources */,
@@ -230,6 +234,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		029E17092855F41700827717 /* Build Env */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Env";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/build-env.sh\" \"${SRCROOT}/.env\" \"${SRCROOT}/${PROJECT}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		023386122855C57B0081AC46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -243,6 +268,7 @@
 				029E17002855E93700827717 /* OpenSeaGetAssets.swift in Sources */,
 				029E16FE2855E79900827717 /* OpenSeaClient.swift in Sources */,
 				0233861A2855C57B0081AC46 /* NftWalletApp.swift in Sources */,
+				029E170B2855F4A700827717 /* Environment.swift in Sources */,
 				029E16F62855E67600827717 /* NftAsset.swift in Sources */,
 				029E17052855F1A000827717 /* HUD.swift in Sources */,
 				029E17022855EFA900827717 /* NftListView.swift in Sources */,

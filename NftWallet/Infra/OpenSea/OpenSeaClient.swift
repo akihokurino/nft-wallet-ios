@@ -76,6 +76,8 @@ struct OpenSeaClient {
                     case let .success(result):
                         promise(.success(result))
                     case let .failure(error):
+                        print("エラー！")
+                        print(error.localizedDescription)
                         promise(.failure(AppError.plain(error.errorDescription ?? "エラーが発生しました")))
                     }
                 }
