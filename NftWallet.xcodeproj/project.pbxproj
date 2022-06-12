@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		0233861A2855C57B0081AC46 /* NftWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023386192855C57B0081AC46 /* NftWalletApp.swift */; };
-		0233861C2855C57B0081AC46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233861B2855C57B0081AC46 /* ContentView.swift */; };
+		0233861C2855C57B0081AC46 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233861B2855C57B0081AC46 /* RootView.swift */; };
 		0233861E2855C57C0081AC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0233861D2855C57C0081AC46 /* Assets.xcassets */; };
 		023386212855C57C0081AC46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023386202855C57C0081AC46 /* Preview Assets.xcassets */; };
+		023386292855C8270081AC46 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 023386282855C8270081AC46 /* ComposableArchitecture */; };
+		0233862C2855C88F0081AC46 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 0233862B2855C88F0081AC46 /* web3swift */; };
+		023386302855C9260081AC46 /* RootVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233862F2855C9260081AC46 /* RootVM.swift */; };
+		023386332855C9C20081AC46 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023386322855C9C20081AC46 /* DataStore.swift */; };
+		023386352855CA3A0081AC46 /* Navigation+TCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023386342855CA3A0081AC46 /* Navigation+TCA.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		023386162855C57B0081AC46 /* NftWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NftWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		023386192855C57B0081AC46 /* NftWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftWalletApp.swift; sourceTree = "<group>"; };
-		0233861B2855C57B0081AC46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0233861B2855C57B0081AC46 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		0233861D2855C57C0081AC46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		023386202855C57C0081AC46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0233862F2855C9260081AC46 /* RootVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVM.swift; sourceTree = "<group>"; };
+		023386322855C9C20081AC46 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		023386342855CA3A0081AC46 /* Navigation+TCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+TCA.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +34,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023386292855C8270081AC46 /* ComposableArchitecture in Frameworks */,
+				0233862C2855C88F0081AC46 /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +61,10 @@
 		023386182855C57B0081AC46 /* NftWallet */ = {
 			isa = PBXGroup;
 			children = (
+				023386312855C98A0081AC46 /* Infra */,
+				0233862D2855C8F90081AC46 /* TCA */,
+				0233862E2855C8FF0081AC46 /* UI */,
 				023386192855C57B0081AC46 /* NftWalletApp.swift */,
-				0233861B2855C57B0081AC46 /* ContentView.swift */,
 				0233861D2855C57C0081AC46 /* Assets.xcassets */,
 				0233861F2855C57C0081AC46 /* Preview Content */,
 			);
@@ -65,6 +77,31 @@
 				023386202855C57C0081AC46 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0233862D2855C8F90081AC46 /* TCA */ = {
+			isa = PBXGroup;
+			children = (
+				0233862F2855C9260081AC46 /* RootVM.swift */,
+				023386342855CA3A0081AC46 /* Navigation+TCA.swift */,
+			);
+			path = TCA;
+			sourceTree = "<group>";
+		};
+		0233862E2855C8FF0081AC46 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0233861B2855C57B0081AC46 /* RootView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		023386312855C98A0081AC46 /* Infra */ = {
+			isa = PBXGroup;
+			children = (
+				023386322855C9C20081AC46 /* DataStore.swift */,
+			);
+			path = Infra;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +120,10 @@
 			dependencies = (
 			);
 			name = NftWallet;
+			packageProductDependencies = (
+				023386282855C8270081AC46 /* ComposableArchitecture */,
+				0233862B2855C88F0081AC46 /* web3swift */,
+			);
 			productName = NftWallet;
 			productReference = 023386162855C57B0081AC46 /* NftWallet.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +152,10 @@
 				Base,
 			);
 			mainGroup = 0233860D2855C57B0081AC46;
+			packageReferences = (
+				023386272855C8270081AC46 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				0233862A2855C88F0081AC46 /* XCRemoteSwiftPackageReference "web3swift" */,
+			);
 			productRefGroup = 023386172855C57B0081AC46 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +182,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0233861C2855C57B0081AC46 /* ContentView.swift in Sources */,
+				023386352855CA3A0081AC46 /* Navigation+TCA.swift in Sources */,
+				023386302855C9260081AC46 /* RootVM.swift in Sources */,
+				023386332855C9C20081AC46 /* DataStore.swift in Sources */,
+				0233861C2855C57B0081AC46 /* RootView.swift in Sources */,
 				0233861A2855C57B0081AC46 /* NftWalletApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +391,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		023386272855C8270081AC46 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		0233862A2855C88F0081AC46 /* XCRemoteSwiftPackageReference "web3swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/skywinder/web3swift.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		023386282855C8270081AC46 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 023386272855C8270081AC46 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		0233862B2855C88F0081AC46 /* web3swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0233862A2855C88F0081AC46 /* XCRemoteSwiftPackageReference "web3swift" */;
+			productName = web3swift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0233860E2855C57B0081AC46 /* Project object */;
 }
