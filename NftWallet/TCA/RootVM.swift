@@ -17,11 +17,14 @@ enum RootVM {
 
             state.nftListView = NftListVM.State(address: address)
             state.photoListView = PhotoListVM.State(address: address)
+            state.walletView = WalletVM.State(address: address)
 
             return .none
         case .nftListView(let action):
             return .none
         case .photoListView(let action):
+            return .none
+        case .walletView(let action):
             return .none
         }
     }
@@ -47,6 +50,17 @@ enum RootVM {
             )
         }
     )
+    .connect(
+        WalletVM.reducer,
+        state: \.walletView,
+        action: /RootVM.Action.walletView,
+        environment: { env in
+            WalletVM.Environment(
+                mainQueue: env.mainQueue,
+                backgroundQueue: env.backgroundQueue
+            )
+        }
+    )
 }
 
 extension RootVM {
@@ -55,11 +69,13 @@ extension RootVM {
 
         case nftListView(NftListVM.Action)
         case photoListView(PhotoListVM.Action)
+        case walletView(WalletVM.Action)
     }
 
     struct State: Equatable {
         var nftListView: NftListVM.State?
         var photoListView: PhotoListVM.State?
+        var walletView: WalletVM.State?
     }
 
     struct Environment {

@@ -22,7 +22,7 @@ struct RootView: View {
                         Text("NFT")
                     }
                 }.tag(1)
-                
+
                 NavigationView {
                     IfLetStore(
                         store.scope(
@@ -38,14 +38,22 @@ struct RootView: View {
                         Text("カメラロール")
                     }
                 }.tag(2)
-                
-                NavigationView {}
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "wallet.pass")
-                            Text("ウォレット")
-                        }
-                    }.tag(3)
+
+                NavigationView {
+                    IfLetStore(
+                        store.scope(
+                            state: { $0.walletView },
+                            action: RootVM.Action.walletView
+                        ),
+                        then: WalletView.init(store:)
+                    )
+                }
+                .tabItem {
+                    VStack {
+                        Image(systemName: "wallet.pass")
+                        Text("ウォレット")
+                    }
+                }.tag(3)
             }
             .onAppear {
                 viewStore.send(.initialize)
