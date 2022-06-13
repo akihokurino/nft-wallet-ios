@@ -3,8 +3,8 @@ import BigInt
 import Foundation
 import web3swift
 
-class OpenSeaGetAssetsRequest: OpenSeaRequestProtocol {
-    typealias ResponseType = OpenSeaGetAssetsResponse
+class GetNftAssetsRequest: OpenSeaRequestProtocol {
+    typealias ResponseType = GetNftAssetsResponse
     
     let owner: EthereumAddress
     let offset: Int
@@ -37,7 +37,7 @@ class OpenSeaGetAssetsRequest: OpenSeaRequestProtocol {
     }
 }
 
-struct OpenSeaGetAssetsResponse: Codable, Equatable {
+struct GetNftAssetsResponse: Codable, Equatable {
     let assets: [NftAssetResponse]
 }
 

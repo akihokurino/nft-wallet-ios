@@ -3,9 +3,16 @@ import Foundation
 import web3swift
 
 enum RootVM {
-    static let reducer = Reducer<State, Action, Environment> { state, action, _ in
+    static let reducer = Reducer<State, Action, Environment> { state, action, environment in
         switch action {
-        case .initialize:
+        case .startInitialize:
+            return FirebaseAuthManager.shared.signInAnonymously()
+                .flatMap { _ in return CloudFunctionClient().uploadIPFS() }
+                .subscribe(on: environment.backgroundQueue)
+                .receive(on: environment.mainQueue)
+                .catchToEffect()
+                .map(RootVM.Action.endInitialize)
+        case .endInitialize(.success(let id)):
             let privateKey = DataStore.shared.getPrivateKey()!
             let keystore = try! EthereumKeystoreV3(privateKey: privateKey)!
             let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
@@ -18,7 +25,8 @@ enum RootVM {
             state.nftListView = NftListVM.State(address: address)
             state.photoListView = PhotoListVM.State(address: address)
             state.walletView = WalletVM.State(address: address)
-
+            return .none
+        case .endInitialize(.failure(_)):
             return .none
         case .nftListView(let action):
             return .none
@@ -65,7 +73,8 @@ enum RootVM {
 
 extension RootVM {
     enum Action: Equatable {
-        case initialize
+        case startInitialize
+        case endInitialize(Result<String, AppError>)
 
         case nftListView(NftListVM.Action)
         case photoListView(PhotoListVM.Action)

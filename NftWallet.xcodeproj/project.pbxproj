@@ -16,17 +16,24 @@
 		023386302855C9260081AC46 /* RootVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233862F2855C9260081AC46 /* RootVM.swift */; };
 		023386332855C9C20081AC46 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023386322855C9C20081AC46 /* DataStore.swift */; };
 		023386352855CA3A0081AC46 /* Navigation+TCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023386342855CA3A0081AC46 /* Navigation+TCA.swift */; };
+		026C341D285780200089D6D8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 026C341C285780200089D6D8 /* FirebaseAuth */; };
+		026C341F285780200089D6D8 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 026C341E285780200089D6D8 /* FirebaseFunctions */; };
+		026C3421285780200089D6D8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 026C3420285780200089D6D8 /* FirebaseStorage */; };
+		026C3423285780C40089D6D8 /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026C3422285780C40089D6D8 /* FirebaseAuth.swift */; };
+		026C3425285783150089D6D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 026C3424285783150089D6D8 /* GoogleService-Info.plist */; };
+		026C3428285789B70089D6D8 /* UploadIPFS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026C3427285789B70089D6D8 /* UploadIPFS.swift */; };
+		026C342A285789F10089D6D8 /* CloudFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026C3429285789F10089D6D8 /* CloudFunction.swift */; };
 		029E16F32855E5DE00827717 /* NftListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E16F22855E5DE00827717 /* NftListVM.swift */; };
 		029E16F62855E67600827717 /* NftAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E16F52855E67600827717 /* NftAsset.swift */; };
 		029E16F82855E69F00827717 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E16F72855E69F00827717 /* Error.swift */; };
 		029E16FC2855E74500827717 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 029E16FB2855E74500827717 /* Alamofire */; };
-		029E16FE2855E79900827717 /* OpenSeaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E16FD2855E79900827717 /* OpenSeaClient.swift */; };
-		029E17002855E93700827717 /* OpenSeaGetAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E16FF2855E93700827717 /* OpenSeaGetAssets.swift */; };
+		029E16FE2855E79900827717 /* OpenSea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E16FD2855E79900827717 /* OpenSea.swift */; };
+		029E17002855E93700827717 /* GetNftAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E16FF2855E93700827717 /* GetNftAssets.swift */; };
 		029E17022855EFA900827717 /* NftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17012855EFA900827717 /* NftListView.swift */; };
 		029E17052855F1A000827717 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17042855F1A000827717 /* HUD.swift */; };
 		029E17082855F1C800827717 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 029E17072855F1C800827717 /* ActivityIndicatorView */; };
 		029E170B2855F4A700827717 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E170A2855F4A700827717 /* Environment.swift */; };
-		029E171028560FCF00827717 /* PhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E170F28560FCF00827717 /* PhotosManager.swift */; };
+		029E171028560FCF00827717 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E170F28560FCF00827717 /* Photos.swift */; };
 		029E17122856102600827717 /* PhotoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17112856102600827717 /* PhotoAsset.swift */; };
 		029E1714285610D500827717 /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E1713285610D500827717 /* PhotoListView.swift */; };
 		029E17162856114B00827717 /* PhotoListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17152856114B00827717 /* PhotoListVM.swift */; };
@@ -44,15 +51,19 @@
 		0233862F2855C9260081AC46 /* RootVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVM.swift; sourceTree = "<group>"; };
 		023386322855C9C20081AC46 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		023386342855CA3A0081AC46 /* Navigation+TCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+TCA.swift"; sourceTree = "<group>"; };
+		026C3422285780C40089D6D8 /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
+		026C3424285783150089D6D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		026C3427285789B70089D6D8 /* UploadIPFS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadIPFS.swift; sourceTree = "<group>"; };
+		026C3429285789F10089D6D8 /* CloudFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFunction.swift; sourceTree = "<group>"; };
 		029E16F22855E5DE00827717 /* NftListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftListVM.swift; sourceTree = "<group>"; };
 		029E16F52855E67600827717 /* NftAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftAsset.swift; sourceTree = "<group>"; };
 		029E16F72855E69F00827717 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		029E16FD2855E79900827717 /* OpenSeaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSeaClient.swift; sourceTree = "<group>"; };
-		029E16FF2855E93700827717 /* OpenSeaGetAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSeaGetAssets.swift; sourceTree = "<group>"; };
+		029E16FD2855E79900827717 /* OpenSea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSea.swift; sourceTree = "<group>"; };
+		029E16FF2855E93700827717 /* GetNftAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNftAssets.swift; sourceTree = "<group>"; };
 		029E17012855EFA900827717 /* NftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftListView.swift; sourceTree = "<group>"; };
 		029E17042855F1A000827717 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		029E170A2855F4A700827717 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		029E170F28560FCF00827717 /* PhotosManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosManager.swift; sourceTree = "<group>"; };
+		029E170F28560FCF00827717 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		029E17112856102600827717 /* PhotoAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAsset.swift; sourceTree = "<group>"; };
 		029E1713285610D500827717 /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
 		029E17152856114B00827717 /* PhotoListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListVM.swift; sourceTree = "<group>"; };
@@ -67,7 +78,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				029E16FC2855E74500827717 /* Alamofire in Frameworks */,
+				026C341D285780200089D6D8 /* FirebaseAuth in Frameworks */,
 				023386292855C8270081AC46 /* ComposableArchitecture in Frameworks */,
+				026C341F285780200089D6D8 /* FirebaseFunctions in Frameworks */,
+				026C3421285780200089D6D8 /* FirebaseStorage in Frameworks */,
 				029E17082855F1C800827717 /* ActivityIndicatorView in Frameworks */,
 				0233862C2855C88F0081AC46 /* web3swift in Frameworks */,
 			);
@@ -102,6 +116,7 @@
 				023386192855C57B0081AC46 /* NftWalletApp.swift */,
 				029E170A2855F4A700827717 /* Environment.swift */,
 				0233861D2855C57C0081AC46 /* Assets.xcassets */,
+				026C3424285783150089D6D8 /* GoogleService-Info.plist */,
 				0233861F2855C57C0081AC46 /* Preview Content */,
 			);
 			path = NftWallet;
@@ -142,11 +157,22 @@
 		023386312855C98A0081AC46 /* Infra */ = {
 			isa = PBXGroup;
 			children = (
+				026C34262857897C0089D6D8 /* CloudFunction */,
 				029E16F92855E71500827717 /* OpenSea */,
 				023386322855C9C20081AC46 /* DataStore.swift */,
-				029E170F28560FCF00827717 /* PhotosManager.swift */,
+				029E170F28560FCF00827717 /* Photos.swift */,
+				026C3422285780C40089D6D8 /* FirebaseAuth.swift */,
 			);
 			path = Infra;
+			sourceTree = "<group>";
+		};
+		026C34262857897C0089D6D8 /* CloudFunction */ = {
+			isa = PBXGroup;
+			children = (
+				026C3429285789F10089D6D8 /* CloudFunction.swift */,
+				026C3427285789B70089D6D8 /* UploadIPFS.swift */,
+			);
+			path = CloudFunction;
 			sourceTree = "<group>";
 		};
 		029E16F42855E66100827717 /* Model */ = {
@@ -162,8 +188,8 @@
 		029E16F92855E71500827717 /* OpenSea */ = {
 			isa = PBXGroup;
 			children = (
-				029E16FD2855E79900827717 /* OpenSeaClient.swift */,
-				029E16FF2855E93700827717 /* OpenSeaGetAssets.swift */,
+				029E16FD2855E79900827717 /* OpenSea.swift */,
+				029E16FF2855E93700827717 /* GetNftAssets.swift */,
 			);
 			path = OpenSea;
 			sourceTree = "<group>";
@@ -199,6 +225,9 @@
 				0233862B2855C88F0081AC46 /* web3swift */,
 				029E16FB2855E74500827717 /* Alamofire */,
 				029E17072855F1C800827717 /* ActivityIndicatorView */,
+				026C341C285780200089D6D8 /* FirebaseAuth */,
+				026C341E285780200089D6D8 /* FirebaseFunctions */,
+				026C3420285780200089D6D8 /* FirebaseStorage */,
 			);
 			productName = NftWallet;
 			productReference = 023386162855C57B0081AC46 /* NFTウォレット.app */;
@@ -233,6 +262,7 @@
 				0233862A2855C88F0081AC46 /* XCRemoteSwiftPackageReference "web3swift" */,
 				029E16FA2855E74400827717 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				029E17062855F1C800827717 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+				026C341B285780200089D6D8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 023386172855C57B0081AC46 /* Products */;
 			projectDirPath = "";
@@ -250,6 +280,7 @@
 			files = (
 				023386212855C57C0081AC46 /* Preview Assets.xcassets in Resources */,
 				0233861E2855C57C0081AC46 /* Assets.xcassets in Resources */,
+				026C3425285783150089D6D8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,11 +319,14 @@
 				029E17122856102600827717 /* PhotoAsset.swift in Sources */,
 				023386332855C9C20081AC46 /* DataStore.swift in Sources */,
 				0233861C2855C57B0081AC46 /* RootView.swift in Sources */,
-				029E17002855E93700827717 /* OpenSeaGetAssets.swift in Sources */,
-				029E171028560FCF00827717 /* PhotosManager.swift in Sources */,
+				029E17002855E93700827717 /* GetNftAssets.swift in Sources */,
+				026C3428285789B70089D6D8 /* UploadIPFS.swift in Sources */,
+				029E171028560FCF00827717 /* Photos.swift in Sources */,
 				029E171C28561DE000827717 /* WalletVM.swift in Sources */,
-				029E16FE2855E79900827717 /* OpenSeaClient.swift in Sources */,
+				029E16FE2855E79900827717 /* OpenSea.swift in Sources */,
 				0233861A2855C57B0081AC46 /* NftWalletApp.swift in Sources */,
+				026C342A285789F10089D6D8 /* CloudFunction.swift in Sources */,
+				026C3423285780C40089D6D8 /* FirebaseAuth.swift in Sources */,
 				029E17162856114B00827717 /* PhotoListVM.swift in Sources */,
 				029E17182856179000827717 /* ScrollView+Refreshable.swift in Sources */,
 				029E170B2855F4A700827717 /* Environment.swift in Sources */,
@@ -525,6 +559,14 @@
 				kind = branch;
 			};
 		};
+		026C341B285780200089D6D8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		029E16FA2855E74400827717 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -553,6 +595,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0233862A2855C88F0081AC46 /* XCRemoteSwiftPackageReference "web3swift" */;
 			productName = web3swift;
+		};
+		026C341C285780200089D6D8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 026C341B285780200089D6D8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		026C341E285780200089D6D8 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 026C341B285780200089D6D8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		026C3420285780200089D6D8 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 026C341B285780200089D6D8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 		029E16FB2855E74500827717 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

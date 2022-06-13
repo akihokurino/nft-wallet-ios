@@ -2,6 +2,7 @@ import ComposableArchitecture
 import SwiftUI
 import web3swift
 import secp256k1
+import FirebaseCore
 
 @main
 struct NftWalletApp: App {
@@ -25,6 +26,8 @@ struct NftWalletApp: App {
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        
         let privateKey = DataStore.shared.getPrivateKey()
         if privateKey == nil {
             let privateKeyFromEnv = Env["WALLET_SECRET"] ?? ""

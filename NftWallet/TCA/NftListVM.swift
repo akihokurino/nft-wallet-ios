@@ -14,7 +14,7 @@ enum NftListVM {
                 state.shouldShowHUD = true
 
                 return OpenSeaClient.publish(
-                    OpenSeaGetAssetsRequest(
+                    GetNftAssetsRequest(
                         owner: state.address,
                         offset: 0,
                         limit: 200
@@ -38,7 +38,7 @@ enum NftListVM {
                 state.shouldPullToRefresh = true
 
                 return OpenSeaClient.publish(
-                    OpenSeaGetAssetsRequest(
+                    GetNftAssetsRequest(
                         owner: state.address,
                         offset: 0,
                         limit: 200
