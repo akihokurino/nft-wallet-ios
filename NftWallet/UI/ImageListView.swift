@@ -2,8 +2,8 @@ import Combine
 import ComposableArchitecture
 import SwiftUI
 
-struct PhotoListView: View {
-    let store: Store<PhotoListVM.State, PhotoListVM.Action>
+struct ImageListView: View {
+    let store: Store<ImageListVM.State, ImageListVM.Action>
 
     private let gridItemLayout = [
         GridItem(.flexible()),
@@ -17,10 +17,12 @@ struct PhotoListView: View {
             ScrollView {
                 LazyVGrid(columns: gridItemLayout, alignment: HorizontalAlignment.leading, spacing: 2) {
                     ForEach(viewStore.assets, id: \.self) { asset in
-                        Button(action: {}) {
+                        Button(action: {
+                            viewStore.send(.showUploadNftView(asset))
+                        }) {
                             PhotoAssetView(asset: asset)
-                                .frame(maxWidth: PhotoListView.thumbnailSize)
-                                .frame(height: PhotoListView.thumbnailSize)
+                                .frame(maxWidth: ImageListView.thumbnailSize)
+                                .frame(height: ImageListView.thumbnailSize)
                         }
                     }
                 }
@@ -34,7 +36,7 @@ struct PhotoListView: View {
                     if viewStore.state.shouldShowHUD {
                         HUD(isLoading: viewStore.binding(
                             get: \.shouldShowHUD,
-                            send: PhotoListVM.Action.shouldShowHUD
+                            send: ImageListVM.Action.shouldShowHUD
                         ))
                     }
                 }, alignment: .center
@@ -42,12 +44,24 @@ struct PhotoListView: View {
             .refreshable {
                 viewStore.send(.startRefresh)
             }
+            .fullScreenCover(isPresented: viewStore.binding(
+                get: \.isPresentedUploadNftView,
+                send: ImageListVM.Action.isPresentedUploadNftView
+            )) {
+                IfLetStore(
+                    store.scope(
+                        state: { $0.uploadNftView },
+                        action: ImageListVM.Action.uploadNftView
+                    ),
+                    then: UploadNftView.init(store:)
+                )
+            }
         }
     }
 }
 
 struct PhotoAssetView: View {
-    @ObservedObject var asset: PhotoAsset
+    @ObservedObject var asset: ImageAsset
     @State var image: UIImage? = nil
 
     var body: some View {
@@ -56,19 +70,19 @@ struct PhotoAssetView: View {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: PhotoListView.thumbnailSize)
-                    .frame(height: PhotoListView.thumbnailSize)
+                    .frame(width: ImageListView.thumbnailSize)
+                    .frame(height: ImageListView.thumbnailSize)
                     .clipped()
 
             } else {
                 Color
                     .gray
-                    .frame(width: PhotoListView.thumbnailSize)
-                    .frame(height: PhotoListView.thumbnailSize)
+                    .frame(width: ImageListView.thumbnailSize)
+                    .frame(height: ImageListView.thumbnailSize)
             }
         }
         .onAppear {
-            asset.request(with: CGSize(width: PhotoListView.thumbnailSize * 3, height: PhotoListView.thumbnailSize * 3)) { image in
+            asset.request(with: CGSize(width: ImageListView.thumbnailSize * 3, height: ImageListView.thumbnailSize * 3)) { image in
                 self.image = image
             }
         }

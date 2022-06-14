@@ -7,7 +7,6 @@ enum RootVM {
         switch action {
         case .startInitialize:
             return FirebaseAuthManager.shared.signInAnonymously()
-                .flatMap { _ in return CloudFunctionClient().uploadIPFS() }
                 .subscribe(on: environment.backgroundQueue)
                 .receive(on: environment.mainQueue)
                 .catchToEffect()
@@ -23,7 +22,7 @@ enum RootVM {
             print("秘密鍵（開発用）: \(pkData)")
 
             state.nftListView = NftListVM.State(address: address)
-            state.photoListView = PhotoListVM.State(address: address)
+            state.photoListView = ImageListVM.State(address: address)
             state.walletView = WalletVM.State(address: address)
             return .none
         case .endInitialize(.failure(_)):
@@ -48,11 +47,11 @@ enum RootVM {
         }
     )
     .connect(
-        PhotoListVM.reducer,
+        ImageListVM.reducer,
         state: \.photoListView,
         action: /RootVM.Action.photoListView,
         environment: { env in
-            PhotoListVM.Environment(
+            ImageListVM.Environment(
                 mainQueue: env.mainQueue,
                 backgroundQueue: env.backgroundQueue
             )
@@ -77,13 +76,13 @@ extension RootVM {
         case endInitialize(Result<String, AppError>)
 
         case nftListView(NftListVM.Action)
-        case photoListView(PhotoListVM.Action)
+        case photoListView(ImageListVM.Action)
         case walletView(WalletVM.Action)
     }
 
     struct State: Equatable {
         var nftListView: NftListVM.State?
-        var photoListView: PhotoListVM.State?
+        var photoListView: ImageListVM.State?
         var walletView: WalletVM.State?
     }
 

@@ -3,7 +3,7 @@ import ComposableArchitecture
 import Foundation
 import web3swift
 
-enum PhotoListVM {
+enum ImageListVM {
     static let reducer = Reducer<State, Action, Environment> { state, action, environment in
         switch action {
             case .startInitialize:
@@ -15,13 +15,13 @@ enum PhotoListVM {
 
                 return PhotosManager.requestAuthorization()
                     .eraseToEffect()
-                    .map(PhotoListVM.Action.authorized)
+                    .map(ImageListVM.Action.authorized)
             case .authorized(.authorized):
                 return PhotosManager.fetchAssets()
                     .subscribe(on: environment.backgroundQueue)
                     .receive(on: environment.mainQueue)
                     .eraseToEffect()
-                    .map(PhotoListVM.Action.endInitialize)
+                    .map(ImageListVM.Action.endInitialize)
             case .authorized(let status):
                 return .none
             case .endInitialize(let assets):
@@ -36,7 +36,7 @@ enum PhotoListVM {
                     .subscribe(on: environment.backgroundQueue)
                     .receive(on: environment.mainQueue)
                     .eraseToEffect()
-                    .map(PhotoListVM.Action.endRefresh)
+                    .map(ImageListVM.Action.endRefresh)
             case .endRefresh(let assets):
                 state.assets = assets
                 state.shouldPullToRefresh = false
@@ -47,19 +47,58 @@ enum PhotoListVM {
             case .shouldPullToRefresh(let val):
                 state.shouldPullToRefresh = val
                 return .none
+            case .showUploadNftView(let asset):
+                state.uploadNftView = UploadNftVM.State(asset: asset)
+                state.isPresentedUploadNftView = true
+                return .none
+            case .isPresentedUploadNftView(let val):
+                state.isPresentedUploadNftView = val
+                return .none
+            case .uploadNftView(let action):
+                switch action {
+                    case .register:
+                        return .none
+                    case .registered(.success(_)):
+                        state.isPresentedUploadNftView = false
+                        state.uploadNftView = nil
+                        return .none
+                    case .registered(.failure(_)):
+                        return .none
+                    case .back:
+                        state.isPresentedUploadNftView = false
+                        state.uploadNftView = nil
+                        return .none
+                    case .shouldShowHUD:
+                        return .none
+                }
         }
     }
+    .connect(
+        UploadNftVM.reducer,
+        state: \.uploadNftView,
+        action: /ImageListVM.Action.uploadNftView,
+        environment: { env in
+            UploadNftVM.Environment(
+                mainQueue: env.mainQueue,
+                backgroundQueue: env.backgroundQueue
+            )
+        }
+    )
 }
 
-extension PhotoListVM {
+extension ImageListVM {
     enum Action: Equatable {
         case startInitialize
         case authorized(PhotoAuthorizationStatus)
-        case endInitialize([PhotoAsset])
+        case endInitialize([ImageAsset])
         case startRefresh
-        case endRefresh([PhotoAsset])
+        case endRefresh([ImageAsset])
         case shouldShowHUD(Bool)
         case shouldPullToRefresh(Bool)
+        case isPresentedUploadNftView(Bool)
+        case showUploadNftView(ImageAsset)
+
+        case uploadNftView(UploadNftVM.Action)
     }
 
     struct State: Equatable {
@@ -68,7 +107,10 @@ extension PhotoListVM {
         var shouldShowHUD = false
         var shouldPullToRefresh = false
         var isInitialized = false
-        var assets: [PhotoAsset] = []
+        var assets: [ImageAsset] = []
+        var isPresentedUploadNftView = false
+
+        var uploadNftView: UploadNftVM.State?
     }
 
     struct Environment {

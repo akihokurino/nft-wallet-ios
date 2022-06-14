@@ -2,7 +2,7 @@ import Combine
 import Photos
 import UIKit
 
-final class PhotoAsset: ObservableObject {
+final class ImageAsset: ObservableObject {
     let id: String
     let asset: PHAsset
     let manager = PHImageManager.default()
@@ -55,8 +55,8 @@ final class PhotoAsset: ObservableObject {
     }
 }
 
-extension PhotoAsset: Identifiable, Hashable {
-    static func == (lhs: PhotoAsset, rhs: PhotoAsset) -> Bool {
+extension ImageAsset: Identifiable, Hashable {
+    static func == (lhs: ImageAsset, rhs: ImageAsset) -> Bool {
         lhs.id == rhs.id
     }
 

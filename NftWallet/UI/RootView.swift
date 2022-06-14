@@ -29,7 +29,7 @@ struct RootView: View {
                             state: { $0.photoListView },
                             action: RootVM.Action.photoListView
                         ),
-                        then: PhotoListView.init(store:)
+                        then: ImageListView.init(store:)
                     )
                 }
                 .tabItem {

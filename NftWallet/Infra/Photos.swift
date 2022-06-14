@@ -14,8 +14,8 @@ enum PhotosManager {
         }
     }
 
-    static func fetchAssets() -> Future<[PhotoAsset], Never> {
-        return Future<[PhotoAsset], Never> { promise in
+    static func fetchAssets() -> Future<[ImageAsset], Never> {
+        return Future<[ImageAsset], Never> { promise in
             let fetchOptions = PHFetchOptions()
             fetchOptions.fetchLimit = 1000
             fetchOptions.sortDescriptors = [
@@ -25,15 +25,15 @@ enum PhotosManager {
                 with: .image,
                 options: fetchOptions
             )
-            var assets = [PhotoAsset]()
+            var assets = [ImageAsset]()
             fetchResult.enumerateObjects { asset, _, _ in
-                assets.append(PhotoAsset(asset: asset))
+                assets.append(ImageAsset(asset: asset))
             }
             promise(.success(assets))
         }
     }
 
-    static func requestImage(asset: PhotoAsset, targetSize: CGSize) -> Future<PhotosImageResponse, Never> {
+    static func requestImage(asset: ImageAsset, targetSize: CGSize) -> Future<PhotosImageResponse, Never> {
         return Future<UIImage?, Never> { promise in
             let options = PHImageRequestOptions()
             options.deliveryMode = .highQualityFormat
@@ -49,7 +49,7 @@ enum PhotosManager {
         }
     }
 
-    static func requestFullImage(asset: PhotoAsset) -> Future<PhotosImageResponse, Never> {
+    static func requestFullImage(asset: ImageAsset) -> Future<PhotosImageResponse, Never> {
         return Future<UIImage?, Never> { promise in
             let options = PHImageRequestOptions()
             options.deliveryMode = .highQualityFormat
