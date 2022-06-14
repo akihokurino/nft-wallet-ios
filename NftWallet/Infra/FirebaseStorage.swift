@@ -9,21 +9,19 @@ class FirebaseStorageManager {
     
     private init() {}
     
-    func upload(data: Data, path: String) -> Future<Int64, AppError> {
-        return Future<Int64, AppError> { promise in
+    func upload(data: Data, path: String) -> Future<String, AppError> {
+        return Future<String, AppError> { promise in
             let metadata = StorageMetadata()
             metadata.contentType = "jpeg"
             
             let ref = Storage.storage(url: self.bucketName).reference().child(path)
             
-            ref.putData(data, metadata: metadata) { metadata, _ in
-                guard let metadata = metadata else {
-                    promise(.failure(AppError.defaultError()))
+            ref.putData(data, metadata: metadata) { _, error in
+                guard error == nil else {
+                    promise(.failure(AppError.plain(error!.localizedDescription)))
                     return
                 }
-                
-                let size = metadata.size
-                promise(.success(size))
+                promise(.success(path))
             }
         }
     }

@@ -16,6 +16,9 @@ struct UploadNftView: View {
     @State private var framePath = Path()
     @State private var cropRect: CGRect = .zero
     @State private var shouldHideFrame: Bool = false
+    @State private var name: String = ""
+    @State private var description: String = ""
+    @State private var externalUrl: String = ""
 
     var cropView: some View {
         WithViewStore(store) { _ in
@@ -63,40 +66,58 @@ struct UploadNftView: View {
 
             let simultaneous = SimultaneousGesture(dragGesture, magnificationGesture)
 
-            VStack(alignment: .leading) {
-                cropView
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-                    .clipped()
-                    .gesture(simultaneous)
-                    .background(FrameBackgroundView(rect: $cropRect, frameSize: $frameSize))
-                    .onAppear {
-                        frameSize = CGSize(width: 250, height: 250)
-                        framePath = holeShapeMask()
-                        viewStore.asset.requestForCrop(with: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)) { image in
-                            self.image = image
+            ScrollView {
+                VStack(alignment: .leading) {
+                    cropView
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                        .clipped()
+                        .gesture(simultaneous)
+                        .background(FrameBackgroundView(rect: $cropRect, frameSize: $frameSize))
+                        .onAppear {
+                            frameSize = CGSize(width: 250, height: 250)
+                            framePath = holeShapeMask()
+                            viewStore.asset.requestForCrop(with: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)) { image in
+                                self.image = image
+                            }
                         }
+
+                    Spacer().frame(height: 20)
+
+                    Group {
+                        TextFieldView(value: $name, label: "名称", keyboardType: .default)
+                            .padding(.horizontal, 16)
+                        Spacer().frame(height: 10)
+                        TextFieldView(value: $description, label: "説明文", keyboardType: .default)
+                            .padding(.horizontal, 16)
+                        Spacer().frame(height: 10)
+                        TextFieldView(value: $externalUrl, label: "外部URL", keyboardType: .URL)
+                            .padding(.horizontal, 16)
+                        Spacer().frame(height: 10)
                     }
 
-                Spacer().frame(height: 50)
+                    Group {
+                        Spacer().frame(height: 20)
+                        ActionButton(text: "登録する", buttonType: name.isEmpty || description.isEmpty ? .disable : .primary) {
+                            shouldHideFrame = true
+                            let paylaod = RegisterNftPayload(
+                                image: convertViewToImage(),
+                                name: name,
+                                description: description,
+                                externalUrl: externalUrl
+                            )
+                            viewStore.send(.register(paylaod))
+                        }
+                        .padding(.horizontal, 16)
 
-                Button(action: {
-                    shouldHideFrame = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        viewStore.send(.register(convertViewToImage()))
+                        Spacer().frame(height: 10)
+                        ActionButton(text: "キャンセル", buttonType: .caution) {
+                            viewStore.send(.back)
+                        }
+                        .padding(.horizontal, 16)
                     }
-                }) {
-                    Text("登録する")
-                }
-                .padding()
 
-                Button(action: {
-                    viewStore.send(.back)
-                }) {
-                    Text("キャンセル")
+                    Spacer()
                 }
-                .padding()
-
-                Spacer()
             }
             .overlay(
                 Group {

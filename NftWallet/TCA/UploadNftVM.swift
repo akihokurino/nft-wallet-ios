@@ -5,19 +5,33 @@ import SDWebImageSwiftUI
 import UIKit
 
 enum UploadNftVM {
-    static let reducer = Reducer<State, Action, Environment> { state, action, _ in
+    static let reducer = Reducer<State, Action, Environment> { state, action, environment in
         switch action {
-        case .register(let image):
+        case .register(let payload):
+            if payload.name.isEmpty || payload.description.isEmpty {
+                return .none
+            }
+
             state.shouldShowHUD = true
             let id = UUID().uuidString
-            let data = image.jpegData(compressionQuality: 0.8)!
-            return FirebaseStorageManager.shared.upload(data: data, path: "/assets/\(id).jpeg")
+            let data = payload.image.jpegData(compressionQuality: 0.8)!
+            return FirebaseStorageManager.shared.upload(data: data, path: "assets/\(id).jpeg")
+                .flatMap { path in
+                    CloudFunctionManager
+                        .shared
+                        .uploadNftMetadata(path: path,
+                                           name: payload.name,
+                                           description: payload.description,
+                                           externalUrl: payload.externalUrl)
+                }
+                .subscribe(on: environment.backgroundQueue)
+                .receive(on: environment.mainQueue)
                 .catchToEffect()
                 .map(UploadNftVM.Action.registered)
         case .registered(.success(_)):
             state.shouldShowHUD = false
             return .none
-        case .registered(.failure(_)):
+        case .registered(.failure(let error)):
             state.shouldShowHUD = false
             return .none
         case .shouldShowHUD(let val):
@@ -29,10 +43,17 @@ enum UploadNftVM {
     }
 }
 
+struct RegisterNftPayload: Equatable {
+    let image: UIImage
+    let name: String
+    let description: String
+    let externalUrl: String
+}
+
 extension UploadNftVM {
     enum Action: Equatable {
-        case register(UIImage)
-        case registered(Result<Int64, AppError>)
+        case register(RegisterNftPayload)
+        case registered(Result<String, AppError>)
         case shouldShowHUD(Bool)
         case back
     }
