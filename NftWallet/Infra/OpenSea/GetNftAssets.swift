@@ -55,4 +55,5 @@ struct NftContractResponse: Codable, Equatable, Hashable {
     let address: String
     let name: String
     let schema_name: String
+    let symbol: String
 }

@@ -56,8 +56,16 @@ struct NftAssetView: View {
                 }
             }
             Spacer()
-            Text(asset.data.name).font(.headline)
-            Text(asset.data.description).font(.subheadline)
+            HStack {
+                Text(asset.data.name).font(.headline)
+                Spacer()
+                Text("スキーマ: \(asset.data.asset_contract.schema_name)").font(.subheadline)
+            }
+            HStack {
+                Text(asset.data.description).font(.subheadline)
+                Spacer()
+                Text("シンボル: \(asset.data.asset_contract.symbol)").font(.subheadline)
+            }
         }
     }
 }
