@@ -43,7 +43,7 @@ extension OpenSeaRequestProtocol {
         urlRequest.allHTTPHeaderFields = headers
         urlRequest.timeoutInterval = TimeInterval(30)
         urlRequest.allowsConstrainedNetworkAccess = allowsConstrainedNetworkAccess
-
+        
         if let params = parameters {
             urlRequest = try encoding.encode(urlRequest, with: params)
         }

@@ -3,6 +3,7 @@ import ComposableArchitecture
 import SDWebImage
 import SDWebImageSwiftUI
 import UIKit
+import web3swift
 
 enum UploadNftVM {
     static let reducer = Reducer<State, Action, Environment> { state, action, environment in
@@ -13,8 +14,11 @@ enum UploadNftVM {
             }
 
             state.shouldShowHUD = true
+
+            let address = state.address
             let id = UUID().uuidString
             let data = payload.image.jpegData(compressionQuality: 0.8)!
+
             return FirebaseStorageManager.shared.upload(data: data, path: "assets/\(id).jpeg")
                 .flatMap { path in
                     CloudFunctionManager
@@ -24,6 +28,7 @@ enum UploadNftVM {
                                            description: payload.description,
                                            externalUrl: payload.externalUrl)
                 }
+                .flatMap { file in EthereumManager.shared.mint(address: address, file: file).map { _ in true } }
                 .subscribe(on: environment.backgroundQueue)
                 .receive(on: environment.mainQueue)
                 .catchToEffect()
@@ -53,12 +58,13 @@ struct RegisterNftPayload: Equatable {
 extension UploadNftVM {
     enum Action: Equatable {
         case register(RegisterNftPayload)
-        case registered(Result<String, AppError>)
+        case registered(Result<Bool, AppError>)
         case shouldShowHUD(Bool)
         case back
     }
 
     struct State: Equatable {
+        let address: EthereumAddress
         let asset: ImageAsset
 
         var shouldShowHUD = false

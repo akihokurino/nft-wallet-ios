@@ -40,9 +40,11 @@ exports.uploadNftMetadata = functions
       ),
     });
     await metadataFile.saveIPFS({ useMasterKey: true });
+    const metadataHash = metadataFile.hash();
     const metadataUrl = metadataFile.ipfs();
 
     return {
+      hash: metadataHash,
       url: metadataUrl,
     };
   });

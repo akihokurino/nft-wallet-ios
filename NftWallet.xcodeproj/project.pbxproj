@@ -44,6 +44,9 @@
 		029E17182856179000827717 /* ScrollView+Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17172856179000827717 /* ScrollView+Refreshable.swift */; };
 		029E171A28561D4F00827717 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E171928561D4F00827717 /* WalletView.swift */; };
 		029E171C28561DE000827717 /* WalletVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E171B28561DE000827717 /* WalletVM.swift */; };
+		02A975CC285C88420030450E /* NftWallet721.abi.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A975CB285C88420030450E /* NftWallet721.abi.json */; };
+		02A975CE285C884E0030450E /* NftWallet1155.abi.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A975CD285C884E0030450E /* NftWallet1155.abi.json */; };
+		02A975D0285C89570030450E /* Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A975CF285C89570030450E /* Ethereum.swift */; };
 		02D3587528588E4300E44954 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3587428588E4300E44954 /* Button.swift */; };
 		02D3587728588FDE00E44954 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3587628588FDE00E44954 /* TextField.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +82,9 @@
 		029E17172856179000827717 /* ScrollView+Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Refreshable.swift"; sourceTree = "<group>"; };
 		029E171928561D4F00827717 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		029E171B28561DE000827717 /* WalletVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletVM.swift; sourceTree = "<group>"; };
+		02A975CB285C88420030450E /* NftWallet721.abi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NftWallet721.abi.json; sourceTree = "<group>"; };
+		02A975CD285C884E0030450E /* NftWallet1155.abi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NftWallet1155.abi.json; sourceTree = "<group>"; };
+		02A975CF285C89570030450E /* Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ethereum.swift; sourceTree = "<group>"; };
 		02D3587428588E4300E44954 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		02D3587628588FDE00E44954 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +135,8 @@
 				029E170A2855F4A700827717 /* Environment.swift */,
 				0233861D2855C57C0081AC46 /* Assets.xcassets */,
 				026C3424285783150089D6D8 /* GoogleService-Info.plist */,
+				02A975CB285C88420030450E /* NftWallet721.abi.json */,
+				02A975CD285C884E0030450E /* NftWallet1155.abi.json */,
 				0233861F2855C57C0081AC46 /* Preview Content */,
 			);
 			path = NftWallet;
@@ -178,6 +186,7 @@
 				026C3422285780C40089D6D8 /* FirebaseAuth.swift */,
 				02508A522858492E00F0FCC0 /* FirebaseStorage.swift */,
 				026C3427285789B70089D6D8 /* CloudFunction.swift */,
+				02A975CF285C89570030450E /* Ethereum.swift */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -306,7 +315,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				023386212855C57C0081AC46 /* Preview Assets.xcassets in Resources */,
+				02A975CE285C884E0030450E /* NftWallet1155.abi.json in Resources */,
 				0233861E2855C57C0081AC46 /* Assets.xcassets in Resources */,
+				02A975CC285C88420030450E /* NftWallet721.abi.json in Resources */,
 				026C3425285783150089D6D8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +363,7 @@
 				029E17002855E93700827717 /* GetNftAssets.swift in Sources */,
 				026C3428285789B70089D6D8 /* CloudFunction.swift in Sources */,
 				029E171028560FCF00827717 /* Photos.swift in Sources */,
+				02A975D0285C89570030450E /* Ethereum.swift in Sources */,
 				029E171C28561DE000827717 /* WalletVM.swift in Sources */,
 				029E16FE2855E79900827717 /* OpenSea.swift in Sources */,
 				0233861A2855C57B0081AC46 /* NftWalletApp.swift in Sources */,

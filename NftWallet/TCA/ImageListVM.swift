@@ -48,7 +48,7 @@ enum ImageListVM {
                 state.shouldPullToRefresh = val
                 return .none
             case .showUploadNftView(let asset):
-                state.uploadNftView = UploadNftVM.State(asset: asset)
+            state.uploadNftView = UploadNftVM.State(address: state.address, asset: asset)
                 state.isPresentedUploadNftView = true
                 return .none
             case .isPresentedUploadNftView(let val):
