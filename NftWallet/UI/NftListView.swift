@@ -59,12 +59,12 @@ struct NftAssetView: View {
             HStack {
                 Text(asset.data.name).font(.headline)
                 Spacer()
-                Text("スキーマ: \(asset.data.asset_contract.schema_name)").font(.subheadline)
+                Text("スキーマ: \(asset.data.asset_contract.schema_name)").font(.caption)
             }
             HStack {
                 Text(asset.data.description).font(.subheadline)
                 Spacer()
-                Text("シンボル: \(asset.data.asset_contract.symbol)").font(.subheadline)
+                Text("シンボル: \(asset.data.asset_contract.symbol)").font(.caption)
             }
         }
     }

@@ -28,7 +28,6 @@ struct WalletView: View {
                         .font(.largeTitle)
                 }
                 .padding()
-                .background(Color.black)
                 .listRowSeparator(.hidden)
                 .listRowInsets(EdgeInsets())
             }
