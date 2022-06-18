@@ -34,6 +34,7 @@ struct NftListView: View {
             )
             .refreshable {
                 viewStore.send(.startRefresh)
+                try! await Task.sleep(nanoseconds: 2000000000)
             }
         }
     }

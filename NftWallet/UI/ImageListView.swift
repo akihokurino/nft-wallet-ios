@@ -14,7 +14,7 @@ struct ImageListView: View {
 
     var body: some View {
         WithViewStore(store) { viewStore in
-            ScrollView {
+            List {
                 LazyVGrid(columns: gridItemLayout, alignment: HorizontalAlignment.leading, spacing: 2) {
                     ForEach(viewStore.assets, id: \.self) { asset in
                         Button(action: {
@@ -26,7 +26,10 @@ struct ImageListView: View {
                         }
                     }
                 }
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets())
             }
+            .listStyle(PlainListStyle())
             .navigationBarTitle("カメラロール", displayMode: .inline)
             .onAppear {
                 viewStore.send(.startInitialize)
@@ -43,6 +46,7 @@ struct ImageListView: View {
             )
             .refreshable {
                 viewStore.send(.startRefresh)
+                try! await Task.sleep(nanoseconds: 2000000000)
             }
             .fullScreenCover(isPresented: viewStore.binding(
                 get: \.isPresentedUploadNftView,

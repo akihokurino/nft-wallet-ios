@@ -5,9 +5,16 @@ struct RefreshableModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         List {
-            content
+            HStack {
+                Spacer()
+                content
+                Spacer()
+            }
+            .listRowSeparator(.hidden)
+            .listRowInsets(EdgeInsets())
         }
         .refreshable(action: action)
+        .listStyle(PlainListStyle())
     }
 }
 
