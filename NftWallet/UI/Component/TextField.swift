@@ -11,7 +11,7 @@ struct TextFieldView: View {
             if !label.isEmpty {
                 Text(label)
                     .foregroundColor(Color.gray)
-                    .font(.body)
+                    .font(.caption)
             }
             Group {
                 TextField("", text: $value, onEditingChanged: { _ in

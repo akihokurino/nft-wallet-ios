@@ -1,8 +1,12 @@
+vendor:
+	npm install
+
 compile:
 	npx hardhat compile
 
-run-test:
+.PHONY: test
+test:
 	npx hardhat test
 
 deploy:
-	npx hardhat run scripts/deploy.js --network rinkeby
+	npx hardhat run scripts/deploy.js --network goerli

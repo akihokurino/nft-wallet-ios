@@ -4,9 +4,9 @@ import SDWebImageSwiftUI
 import SwiftUI
 import UIKit
 
-struct UploadNftView: View {
-    let store: Store<UploadNftVM.State, UploadNftVM.Action>
-
+struct MintNftView: View {
+    let store: Store<MintNftVM.State, MintNftVM.Action>
+    
     @State private var image: UIImage? = nil
     @State private var currentPosition: CGSize = .zero
     @State private var newPosition: CGSize = .zero
@@ -94,10 +94,10 @@ struct UploadNftView: View {
                             .padding(.horizontal, 16)
                         Spacer().frame(height: 10)
                     }
-
+                    
                     Group {
                         Spacer().frame(height: 20)
-                        ActionButton(text: "登録する", buttonType: name.isEmpty || description.isEmpty ? .disable : .primary) {
+                        ActionButton(text: "NFTを発行する", buttonType: name.isEmpty || description.isEmpty ? .disable : .primary) {
                             shouldHideFrame = true
                             let paylaod = RegisterNftPayload(
                                 image: convertViewToImage(),
@@ -105,7 +105,7 @@ struct UploadNftView: View {
                                 description: description,
                                 externalUrl: externalUrl
                             )
-                            viewStore.send(.register(paylaod))
+                            viewStore.send(.mint(paylaod))
                         }
                         .padding(.horizontal, 16)
 
@@ -124,7 +124,7 @@ struct UploadNftView: View {
                     if viewStore.state.shouldShowHUD {
                         HUD(isLoading: viewStore.binding(
                             get: \.shouldShowHUD,
-                            send: UploadNftVM.Action.shouldShowHUD
+                            send: MintNftVM.Action.shouldShowHUD
                         ))
                     }
                 }, alignment: .center
@@ -133,9 +133,7 @@ struct UploadNftView: View {
     }
 
     func convertViewToImage() -> UIImage {
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScene = scenes.first as! UIWindowScene
-        return windowScene.windows[0].rootViewController!.presentedViewController!.view.asImage(rect: cropRect)
+        return UIApplication.shared.windows[0].rootViewController!.presentedViewController!.view.asImage(rect: cropRect)
     }
 
     func holeShapeMask() -> Path {
@@ -158,7 +156,7 @@ struct FrameForegroundView: View {
         RoundedRectangle(cornerRadius: 10)
             .stroke(style:
                 StrokeStyle(
-                    lineWidth: 5
+                    lineWidth: 2
                 ))
             .fill(Color.white)
     }
@@ -183,7 +181,7 @@ struct FrameBackgroundView: View {
         DispatchQueue.main.async {
             let globalRect = proxy.frame(in: .global)
             let origin = CGPoint(x: globalRect.midX - size.width / 2, y: globalRect.midY - size.height / 2)
-            self.rect = CGRect(x: origin.x, y: origin.y, width: size.width, height: size.height)
+            self.rect = CGRect(x: origin.x, y: origin.y, width: size.width - 2, height: size.height - 2)
         }
         return Rectangle().fill(Color.clear)
     }

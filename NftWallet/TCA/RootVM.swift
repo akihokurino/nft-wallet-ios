@@ -12,17 +12,9 @@ enum RootVM {
                 .catchToEffect()
                 .map(RootVM.Action.endInitialize)
         case .endInitialize(.success(let id)):
-            let privateKey = DataStore.shared.getPrivateKey()!
-            let keystore = try! EthereumKeystoreV3(privateKey: privateKey)!
-            let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
-            let address = keystore.addresses!.first!
-
-            let keystoreManager = KeystoreManager([keystore])
-            let pkData = try! keystoreManager.UNSAFE_getPrivateKeyData(password: "web3swift", account: address).toHexString()
-            print("秘密鍵（開発用）: \(pkData)")
-
+            let address = EthereumManager.shared.address
             state.nftListView = NftListVM.State(address: address)
-            state.photoListView = ImageListVM.State(address: address)
+            state.photoListView = AssetListVM.State(address: address)
             state.walletView = WalletVM.State(address: address)
             return .none
         case .endInitialize(.failure(_)):
@@ -47,11 +39,11 @@ enum RootVM {
         }
     )
     .connect(
-        ImageListVM.reducer,
+        AssetListVM.reducer,
         state: \.photoListView,
         action: /RootVM.Action.photoListView,
         environment: { env in
-            ImageListVM.Environment(
+            AssetListVM.Environment(
                 mainQueue: env.mainQueue,
                 backgroundQueue: env.backgroundQueue
             )
@@ -76,13 +68,13 @@ extension RootVM {
         case endInitialize(Result<String, AppError>)
 
         case nftListView(NftListVM.Action)
-        case photoListView(ImageListVM.Action)
+        case photoListView(AssetListVM.Action)
         case walletView(WalletVM.Action)
     }
 
     struct State: Equatable {
         var nftListView: NftListVM.State?
-        var photoListView: ImageListVM.State?
+        var photoListView: AssetListVM.State?
         var walletView: WalletVM.State?
     }
 

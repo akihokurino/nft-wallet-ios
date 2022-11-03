@@ -1,9 +1,9 @@
 MAKEFLAGS=--no-builtin-rules --no-builtin-variables --always-make
 ROOT := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 
-MORARIS_URL := ""
-MORARIS_APP_ID := ""
-MORARIS_MASTER_KEY := ""
+MORARIS_URL := https://qcdgbkhha2hk.usemoralis.com:2053/server
+MORARIS_APP_ID := UUhyyinuDIJQqa5tTeq7CMhlewLroKlLF397DmRc
+MORARIS_MASTER_KEY := PQBwVVCE4DTJxjJSaaaEuiwczfAkgR7nn3ktdQhL
 
 deploy-functions:
 	firebase deploy --only functions

@@ -2,35 +2,33 @@ import Combine
 import ComposableArchitecture
 import SwiftUI
 
-struct ImageListView: View {
-    let store: Store<ImageListVM.State, ImageListVM.Action>
+struct AssetListView: View {
+    let store: Store<AssetListVM.State, AssetListVM.Action>
 
+    static let gridItemSize = UIScreen.main.bounds.size.width / 2
     private let gridItemLayout = [
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
-
-    static let thumbnailSize = UIScreen.main.bounds.size.width / 2
 
     var body: some View {
         WithViewStore(store) { viewStore in
             List {
                 LazyVGrid(columns: gridItemLayout, alignment: HorizontalAlignment.leading, spacing: 2) {
                     ForEach(viewStore.assets, id: \.self) { asset in
-                        Button(action: {
-                            viewStore.send(.showUploadNftView(asset))
-                        }) {
-                            PhotoAssetView(asset: asset)
-                                .frame(maxWidth: ImageListView.thumbnailSize)
-                                .frame(height: ImageListView.thumbnailSize)
-                        }
+                        AssetView(asset: asset)
+                            .frame(maxWidth: AssetListView.gridItemSize)
+                            .frame(height: AssetListView.gridItemSize)
+                            .onTapGesture {
+                                viewStore.send(.showUploadNftView(asset))
+                            }
                     }
                 }
                 .listRowSeparator(.hidden)
                 .listRowInsets(EdgeInsets())
             }
             .listStyle(PlainListStyle())
-            .navigationBarTitle("カメラロール", displayMode: .inline)
+            .navigationBarTitle("", displayMode: .inline)
             .onAppear {
                 viewStore.send(.startInitialize)
             }
@@ -39,32 +37,31 @@ struct ImageListView: View {
                     if viewStore.state.shouldShowHUD {
                         HUD(isLoading: viewStore.binding(
                             get: \.shouldShowHUD,
-                            send: ImageListVM.Action.shouldShowHUD
+                            send: AssetListVM.Action.shouldShowHUD
                         ))
                     }
                 }, alignment: .center
             )
             .refreshable {
-                viewStore.send(.startRefresh)
-                try! await Task.sleep(nanoseconds: 2000000000)
+                await viewStore.send(.startRefresh, while: \.shouldPullToRefresh)
             }
             .fullScreenCover(isPresented: viewStore.binding(
                 get: \.isPresentedUploadNftView,
-                send: ImageListVM.Action.isPresentedUploadNftView
+                send: AssetListVM.Action.isPresentedUploadNftView
             )) {
                 IfLetStore(
                     store.scope(
                         state: { $0.uploadNftView },
-                        action: ImageListVM.Action.uploadNftView
+                        action: AssetListVM.Action.uploadNftView
                     ),
-                    then: UploadNftView.init(store:)
+                    then: MintNftView.init(store:)
                 )
             }
         }
     }
 }
 
-struct PhotoAssetView: View {
+struct AssetView: View {
     @ObservedObject var asset: ImageAsset
     @State var image: UIImage? = nil
 
@@ -74,19 +71,19 @@ struct PhotoAssetView: View {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: ImageListView.thumbnailSize)
-                    .frame(height: ImageListView.thumbnailSize)
+                    .frame(width: AssetListView.gridItemSize)
+                    .frame(height: AssetListView.gridItemSize)
                     .clipped()
 
             } else {
                 Color
                     .gray
-                    .frame(width: ImageListView.thumbnailSize)
-                    .frame(height: ImageListView.thumbnailSize)
+                    .frame(width: AssetListView.gridItemSize)
+                    .frame(height: AssetListView.gridItemSize)
             }
         }
         .onAppear {
-            asset.request(with: CGSize(width: ImageListView.thumbnailSize * 3, height: ImageListView.thumbnailSize * 3)) { image in
+            asset.request(with: CGSize(width: AssetListView.gridItemSize * 3, height: AssetListView.gridItemSize * 3)) { image in
                 self.image = image
             }
         }

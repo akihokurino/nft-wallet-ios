@@ -5,7 +5,7 @@
 - the composable architecture ( https://github.com/pointfreeco/swift-composable-architecture ）
 - alamofire ( https://github.com/Alamofire/Alamofire )
 - ethereum
-- rinkeby
+- goerli
 - opensea ( https://opensea.io/ )
 - web3swift ( https://github.com/skywinder/web3swift )
 - solidity v0.8.11

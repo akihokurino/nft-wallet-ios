@@ -32,7 +32,7 @@ struct WalletView: View {
                 .listRowInsets(EdgeInsets())
             }
             .listStyle(PlainListStyle())
-            .navigationBarTitle("ウォレット", displayMode: .inline)
+            .navigationBarTitle("", displayMode: .inline)
             .onAppear {
                 viewStore.send(.startInitialize)
             }
@@ -47,8 +47,7 @@ struct WalletView: View {
                 }, alignment: .center
             )
             .refreshable {
-                viewStore.send(.startRefresh)
-                try! await Task.sleep(nanoseconds: 2000000000)
+                await viewStore.send(.startRefresh, while: \.shouldPullToRefresh)
             }
         }
     }

@@ -4,21 +4,30 @@ import SwiftUI
 struct NftListView: View {
     let store: Store<NftListVM.State, NftListVM.Action>
 
+    static let gridItemSize = UIScreen.main.bounds.size.width / 2
+    private let gridItemLayout = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
+
     var body: some View {
         WithViewStore(store) { viewStore in
             List {
-                ForEach(viewStore.state.assets, id: \.self) { asset in
-                    Button(action: {
-                        UIApplication.shared.open(URL(string: asset.data.permalink)!)
-                    }) {
-                        NftAssetView(asset: asset)
+                LazyVGrid(columns: gridItemLayout, alignment: HorizontalAlignment.leading, spacing: 2) {
+                    ForEach(viewStore.state.assets, id: \.id) { asset in
+                        NftView(asset: asset)
+                            .onTapGesture {
+                                UIApplication.shared.open(URL(string: asset.data.permalink)!)
+                            }
+                            .padding(.vertical, 10)
                     }
-                    .listRowSeparator(.hidden)
-                    .padding(.vertical, 10)
                 }
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets())
+                .padding(.horizontal, 10)
             }
             .listStyle(PlainListStyle())
-            .navigationBarTitle("NFT", displayMode: .inline)
+            .navigationBarTitle("", displayMode: .inline)
             .onAppear {
                 viewStore.send(.startInitialize)
             }
@@ -33,39 +42,32 @@ struct NftListView: View {
                 }, alignment: .center
             )
             .refreshable {
-                viewStore.send(.startRefresh)
-                try! await Task.sleep(nanoseconds: 2000000000)
+                await viewStore.send(.startRefresh, while: \.shouldPullToRefresh)
             }
         }
     }
 }
 
-struct NftAssetView: View {
+struct NftView: View {
     let asset: NftAsset
 
     var body: some View {
-        VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: asset.data.image_url)) { phase in
-                if let image = phase.image {
+        AsyncImage(url: URL(string: asset.data.image_url)) { phase in
+            if let image = phase.image {
+                VStack(alignment: .leading) {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                } else {
-                    ProgressView()
-                        .frame(height: 60, alignment: .center)
-                        .frame(maxWidth: .infinity, alignment: .center)
+                        .cornerRadius(10)
+                    Spacer()
+                    Text(asset.data.name).font(.headline)
+                    Spacer().frame(height: 5)
+                    Text("\(asset.data.asset_contract.schema_name)").font(.caption)
                 }
-            }
-            Spacer()
-            HStack {
-                Text(asset.data.name).font(.headline)
-                Spacer()
-                Text("スキーマ: \(asset.data.asset_contract.schema_name)").font(.caption)
-            }
-            HStack {
-                Text(asset.data.description).font(.subheadline)
-                Spacer()
-                Text("シンボル: \(asset.data.asset_contract.symbol)").font(.caption)
+            } else {
+                ProgressView()
+                    .frame(height: 60, alignment: .center)
+                    .frame(maxWidth: .infinity, alignment: .center)
             }
         }
     }

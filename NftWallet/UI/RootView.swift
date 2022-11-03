@@ -18,7 +18,7 @@ struct RootView: View {
                 }
                 .tabItem {
                     VStack {
-                        Image(systemName: "folder")
+                        Image(systemName: "square.grid.2x2")
                         Text("NFT")
                     }
                 }.tag(1)
@@ -29,13 +29,13 @@ struct RootView: View {
                             state: { $0.photoListView },
                             action: RootVM.Action.photoListView
                         ),
-                        then: ImageListView.init(store:)
+                        then: AssetListView.init(store:)
                     )
                 }
                 .tabItem {
                     VStack {
-                        Image(systemName: "camera.fill")
-                        Text("カメラロール")
+                        Image(systemName: "square.and.arrow.up")
+                        Text("発行")
                     }
                 }.tag(2)
 

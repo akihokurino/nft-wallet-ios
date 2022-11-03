@@ -17,8 +17,8 @@
 		023386332855C9C20081AC46 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023386322855C9C20081AC46 /* DataStore.swift */; };
 		023386352855CA3A0081AC46 /* Navigation+TCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023386342855CA3A0081AC46 /* Navigation+TCA.swift */; };
 		02508A532858492E00F0FCC0 /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02508A522858492E00F0FCC0 /* FirebaseStorage.swift */; };
-		02508A5528584A5800F0FCC0 /* UploadNftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02508A5428584A5800F0FCC0 /* UploadNftView.swift */; };
-		02508A5728584B4900F0FCC0 /* UploadNftVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02508A5628584B4900F0FCC0 /* UploadNftVM.swift */; };
+		02508A5528584A5800F0FCC0 /* MintNftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02508A5428584A5800F0FCC0 /* MintNftView.swift */; };
+		02508A5728584B4900F0FCC0 /* MintNftVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02508A5628584B4900F0FCC0 /* MintNftVM.swift */; };
 		02508A5A28584D4300F0FCC0 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 02508A5928584D4300F0FCC0 /* SDWebImageSwiftUI */; };
 		02508A5D2858517600F0FCC0 /* UIView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02508A5C2858517600F0FCC0 /* UIView+Image.swift */; };
 		026C341D285780200089D6D8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 026C341C285780200089D6D8 /* FirebaseAuth */; };
@@ -39,9 +39,8 @@
 		029E170B2855F4A700827717 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E170A2855F4A700827717 /* Environment.swift */; };
 		029E171028560FCF00827717 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E170F28560FCF00827717 /* Photos.swift */; };
 		029E17122856102600827717 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17112856102600827717 /* ImageAsset.swift */; };
-		029E1714285610D500827717 /* ImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E1713285610D500827717 /* ImageListView.swift */; };
-		029E17162856114B00827717 /* ImageListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17152856114B00827717 /* ImageListVM.swift */; };
-		029E17182856179000827717 /* ScrollView+Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17172856179000827717 /* ScrollView+Refreshable.swift */; };
+		029E1714285610D500827717 /* AssetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E1713285610D500827717 /* AssetListView.swift */; };
+		029E17162856114B00827717 /* AssetListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17152856114B00827717 /* AssetListVM.swift */; };
 		029E171A28561D4F00827717 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E171928561D4F00827717 /* WalletView.swift */; };
 		029E171C28561DE000827717 /* WalletVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E171B28561DE000827717 /* WalletVM.swift */; };
 		02A975CC285C88420030450E /* NftWallet721.abi.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A975CB285C88420030450E /* NftWallet721.abi.json */; };
@@ -61,8 +60,8 @@
 		023386322855C9C20081AC46 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		023386342855CA3A0081AC46 /* Navigation+TCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+TCA.swift"; sourceTree = "<group>"; };
 		02508A522858492E00F0FCC0 /* FirebaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
-		02508A5428584A5800F0FCC0 /* UploadNftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadNftView.swift; sourceTree = "<group>"; };
-		02508A5628584B4900F0FCC0 /* UploadNftVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadNftVM.swift; sourceTree = "<group>"; };
+		02508A5428584A5800F0FCC0 /* MintNftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MintNftView.swift; sourceTree = "<group>"; };
+		02508A5628584B4900F0FCC0 /* MintNftVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MintNftVM.swift; sourceTree = "<group>"; };
 		02508A5C2858517600F0FCC0 /* UIView+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Image.swift"; sourceTree = "<group>"; };
 		026C3422285780C40089D6D8 /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
 		026C3424285783150089D6D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -77,9 +76,8 @@
 		029E170A2855F4A700827717 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		029E170F28560FCF00827717 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		029E17112856102600827717 /* ImageAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
-		029E1713285610D500827717 /* ImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListView.swift; sourceTree = "<group>"; };
-		029E17152856114B00827717 /* ImageListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListVM.swift; sourceTree = "<group>"; };
-		029E17172856179000827717 /* ScrollView+Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Refreshable.swift"; sourceTree = "<group>"; };
+		029E1713285610D500827717 /* AssetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListView.swift; sourceTree = "<group>"; };
+		029E17152856114B00827717 /* AssetListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListVM.swift; sourceTree = "<group>"; };
 		029E171928561D4F00827717 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		029E171B28561DE000827717 /* WalletVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletVM.swift; sourceTree = "<group>"; };
 		02A975CB285C88420030450E /* NftWallet721.abi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NftWallet721.abi.json; sourceTree = "<group>"; };
@@ -156,9 +154,9 @@
 				02508A5E2858518000F0FCC0 /* Extension */,
 				0233862F2855C9260081AC46 /* RootVM.swift */,
 				029E16F22855E5DE00827717 /* NftListVM.swift */,
-				029E17152856114B00827717 /* ImageListVM.swift */,
+				029E17152856114B00827717 /* AssetListVM.swift */,
+				02508A5628584B4900F0FCC0 /* MintNftVM.swift */,
 				029E171B28561DE000827717 /* WalletVM.swift */,
-				02508A5628584B4900F0FCC0 /* UploadNftVM.swift */,
 			);
 			path = TCA;
 			sourceTree = "<group>";
@@ -170,9 +168,9 @@
 				029E17032855F19500827717 /* Component */,
 				0233861B2855C57B0081AC46 /* RootView.swift */,
 				029E17012855EFA900827717 /* NftListView.swift */,
-				029E1713285610D500827717 /* ImageListView.swift */,
+				029E1713285610D500827717 /* AssetListView.swift */,
+				02508A5428584A5800F0FCC0 /* MintNftView.swift */,
 				029E171928561D4F00827717 /* WalletView.swift */,
-				02508A5428584A5800F0FCC0 /* UploadNftView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -194,7 +192,6 @@
 		02508A5B285850D100F0FCC0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				029E17172856179000827717 /* ScrollView+Refreshable.swift */,
 				02508A5C2858517600F0FCC0 /* UIView+Image.swift */,
 			);
 			path = Extension;
@@ -356,7 +353,7 @@
 				02D3587728588FDE00E44954 /* TextField.swift in Sources */,
 				023386302855C9260081AC46 /* RootVM.swift in Sources */,
 				029E171A28561D4F00827717 /* WalletView.swift in Sources */,
-				02508A5528584A5800F0FCC0 /* UploadNftView.swift in Sources */,
+				02508A5528584A5800F0FCC0 /* MintNftView.swift in Sources */,
 				029E17122856102600827717 /* ImageAsset.swift in Sources */,
 				023386332855C9C20081AC46 /* DataStore.swift in Sources */,
 				0233861C2855C57B0081AC46 /* RootView.swift in Sources */,
@@ -369,16 +366,15 @@
 				0233861A2855C57B0081AC46 /* NftWalletApp.swift in Sources */,
 				026C3423285780C40089D6D8 /* FirebaseAuth.swift in Sources */,
 				02D3587528588E4300E44954 /* Button.swift in Sources */,
-				029E17162856114B00827717 /* ImageListVM.swift in Sources */,
-				029E17182856179000827717 /* ScrollView+Refreshable.swift in Sources */,
+				029E17162856114B00827717 /* AssetListVM.swift in Sources */,
 				029E170B2855F4A700827717 /* Environment.swift in Sources */,
 				029E16F62855E67600827717 /* NftAsset.swift in Sources */,
 				029E17052855F1A000827717 /* HUD.swift in Sources */,
 				029E17022855EFA900827717 /* NftListView.swift in Sources */,
 				029E16F32855E5DE00827717 /* NftListVM.swift in Sources */,
 				02508A532858492E00F0FCC0 /* FirebaseStorage.swift in Sources */,
-				02508A5728584B4900F0FCC0 /* UploadNftVM.swift in Sources */,
-				029E1714285610D500827717 /* ImageListView.swift in Sources */,
+				02508A5728584B4900F0FCC0 /* MintNftVM.swift in Sources */,
+				029E1714285610D500827717 /* AssetListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -489,7 +485,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -511,12 +507,13 @@
 				DEVELOPMENT_TEAM = 39KF2M8S75;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "NFTウォレット";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "アルバムの写真を選択します";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,6 +522,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "app.akiho.nft-wallet";
 				PRODUCT_NAME = "NFTウォレット";
 				PROVISIONING_PROFILE_SPECIFIER = "nft wallet dev";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -543,12 +543,13 @@
 				DEVELOPMENT_TEAM = 39KF2M8S75;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "NFTウォレット";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "アルバムの写真を選択します";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,6 +558,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "app.akiho.nft-wallet";
 				PRODUCT_NAME = "NFTウォレット";
 				PROVISIONING_PROFILE_SPECIFIER = "nft wallet dev";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

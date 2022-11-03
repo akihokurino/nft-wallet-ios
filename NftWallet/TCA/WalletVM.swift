@@ -13,16 +13,10 @@ enum WalletVM {
 
             state.shouldShowHUD = true
 
-            let address = state.address
-            
             return Future<String, AppError> { promise in
                 DispatchQueue.global(qos: .background).async {
-                    let web3 = web3(provider: Web3HttpProvider(URL(string: Env["CHAIN_URL"]!)!)!)
-
                     do {
-                        let balanceWei = try web3.eth.getBalance(address: address)
-                        let balanceEther = Web3.Utils.formatToEthereumUnits(balanceWei, toUnits: .eth, decimals: 3)!
-                        promise(.success(balanceEther))
+                        promise(.success(try EthereumManager.shared.balance()))
                     } catch {
                         promise(.failure(AppError.plain(error.localizedDescription)))
                     }
@@ -43,16 +37,10 @@ enum WalletVM {
         case .startRefresh:
             state.shouldPullToRefresh = true
 
-            let address = state.address
-
             return Future<String, AppError> { promise in
                 DispatchQueue.global(qos: .background).async {
-                    let web3 = web3(provider: Web3HttpProvider(URL(string: Env["CHAIN_URL"]!)!)!)
-
                     do {
-                        let balanceWei = try web3.eth.getBalance(address: address)
-                        let balanceEther = Web3.Utils.formatToEthereumUnits(balanceWei, toUnits: .eth, decimals: 3)!
-                        promise(.success(balanceEther))
+                        promise(.success(try EthereumManager.shared.balance()))
                     } catch {
                         promise(.failure(AppError.plain(error.localizedDescription)))
                     }
