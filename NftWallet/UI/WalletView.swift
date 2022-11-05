@@ -1,6 +1,5 @@
 import ComposableArchitecture
 import SwiftUI
-import web3swift
 
 struct WalletView: View {
     let store: Store<WalletVM.State, WalletVM.Action>
@@ -10,7 +9,7 @@ struct WalletView: View {
             List {
                 VStack(alignment: .leading) {
                     Button(action: {}) {
-                        Text("アドレス: \n\(viewStore.state.address.address)")
+                        Text("アドレス: \n\(EthereumManager.shared.address.address)")
                             .lineLimit(nil)
                     }
                     Spacer().frame(height: 20)

@@ -30,7 +30,6 @@
 		029E16F32855E5DE00827717 /* NftListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E16F22855E5DE00827717 /* NftListVM.swift */; };
 		029E16F62855E67600827717 /* NftAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E16F52855E67600827717 /* NftAsset.swift */; };
 		029E16F82855E69F00827717 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E16F72855E69F00827717 /* Error.swift */; };
-		029E16FC2855E74500827717 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 029E16FB2855E74500827717 /* Alamofire */; };
 		029E16FE2855E79900827717 /* OpenSea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E16FD2855E79900827717 /* OpenSea.swift */; };
 		029E17002855E93700827717 /* GetNftAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E16FF2855E93700827717 /* GetNftAssets.swift */; };
 		029E17022855EFA900827717 /* NftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17012855EFA900827717 /* NftListView.swift */; };
@@ -46,6 +45,15 @@
 		02A975CC285C88420030450E /* NftWallet721.abi.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A975CB285C88420030450E /* NftWallet721.abi.json */; };
 		02A975CE285C884E0030450E /* NftWallet1155.abi.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A975CD285C884E0030450E /* NftWallet1155.abi.json */; };
 		02A975D0285C89570030450E /* Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A975CF285C89570030450E /* Ethereum.swift */; };
+		02B286DE291671EA00E879F6 /* Rinna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286DD291671EA00E879F6 /* Rinna.swift */; };
+		02B286E02916720C00E879F6 /* TextToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286DF2916720C00E879F6 /* TextToImage.swift */; };
+		02B286E2291674EC00E879F6 /* TextToImageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286E1291674EC00E879F6 /* TextToImageVM.swift */; };
+		02B286E42916750C00E879F6 /* TextToImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286E32916750C00E879F6 /* TextToImageView.swift */; };
+		02B286E62916757C00E879F6 /* PrepareMintPageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286E52916757C00E879F6 /* PrepareMintPageVM.swift */; };
+		02B286E82916759900E879F6 /* PrepareMintPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286E72916759900E879F6 /* PrepareMintPageView.swift */; };
+		02B286EB2916761C00E879F6 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 02B286EA2916761C00E879F6 /* SwiftUIPager */; };
+		02B286ED2916777400E879F6 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286EC2916777400E879F6 /* Page.swift */; };
+		02B286F02916884900E879F6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 02B286EF2916884900E879F6 /* Alamofire */; };
 		02D3587528588E4300E44954 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3587428588E4300E44954 /* Button.swift */; };
 		02D3587728588FDE00E44954 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3587628588FDE00E44954 /* TextField.swift */; };
 /* End PBXBuildFile section */
@@ -83,6 +91,13 @@
 		02A975CB285C88420030450E /* NftWallet721.abi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NftWallet721.abi.json; sourceTree = "<group>"; };
 		02A975CD285C884E0030450E /* NftWallet1155.abi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NftWallet1155.abi.json; sourceTree = "<group>"; };
 		02A975CF285C89570030450E /* Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ethereum.swift; sourceTree = "<group>"; };
+		02B286DD291671EA00E879F6 /* Rinna.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rinna.swift; sourceTree = "<group>"; };
+		02B286DF2916720C00E879F6 /* TextToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToImage.swift; sourceTree = "<group>"; };
+		02B286E1291674EC00E879F6 /* TextToImageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToImageVM.swift; sourceTree = "<group>"; };
+		02B286E32916750C00E879F6 /* TextToImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToImageView.swift; sourceTree = "<group>"; };
+		02B286E52916757C00E879F6 /* PrepareMintPageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareMintPageVM.swift; sourceTree = "<group>"; };
+		02B286E72916759900E879F6 /* PrepareMintPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareMintPageView.swift; sourceTree = "<group>"; };
+		02B286EC2916777400E879F6 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		02D3587428588E4300E44954 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		02D3587628588FDE00E44954 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,11 +107,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				029E16FC2855E74500827717 /* Alamofire in Frameworks */,
+				02B286F02916884900E879F6 /* Alamofire in Frameworks */,
 				026C341D285780200089D6D8 /* FirebaseAuth in Frameworks */,
 				023386292855C8270081AC46 /* ComposableArchitecture in Frameworks */,
 				026C341F285780200089D6D8 /* FirebaseFunctions in Frameworks */,
 				02508A5A28584D4300F0FCC0 /* SDWebImageSwiftUI in Frameworks */,
+				02B286EB2916761C00E879F6 /* SwiftUIPager in Frameworks */,
 				026C3421285780200089D6D8 /* FirebaseStorage in Frameworks */,
 				029E17082855F1C800827717 /* ActivityIndicatorView in Frameworks */,
 				0233862C2855C88F0081AC46 /* web3swift in Frameworks */,
@@ -154,6 +170,8 @@
 				02508A5E2858518000F0FCC0 /* Extension */,
 				0233862F2855C9260081AC46 /* RootVM.swift */,
 				029E16F22855E5DE00827717 /* NftListVM.swift */,
+				02B286E52916757C00E879F6 /* PrepareMintPageVM.swift */,
+				02B286E1291674EC00E879F6 /* TextToImageVM.swift */,
 				029E17152856114B00827717 /* AssetListVM.swift */,
 				02508A5628584B4900F0FCC0 /* MintNftVM.swift */,
 				029E171B28561DE000827717 /* WalletVM.swift */,
@@ -168,6 +186,8 @@
 				029E17032855F19500827717 /* Component */,
 				0233861B2855C57B0081AC46 /* RootView.swift */,
 				029E17012855EFA900827717 /* NftListView.swift */,
+				02B286E72916759900E879F6 /* PrepareMintPageView.swift */,
+				02B286E32916750C00E879F6 /* TextToImageView.swift */,
 				029E1713285610D500827717 /* AssetListView.swift */,
 				02508A5428584A5800F0FCC0 /* MintNftView.swift */,
 				029E171928561D4F00827717 /* WalletView.swift */,
@@ -178,6 +198,7 @@
 		023386312855C98A0081AC46 /* Infra */ = {
 			isa = PBXGroup;
 			children = (
+				02B286DC291671AF00E879F6 /* Rinna */,
 				029E16F92855E71500827717 /* OpenSea */,
 				023386322855C9C20081AC46 /* DataStore.swift */,
 				029E170F28560FCF00827717 /* Photos.swift */,
@@ -185,6 +206,7 @@
 				02508A522858492E00F0FCC0 /* FirebaseStorage.swift */,
 				026C3427285789B70089D6D8 /* CloudFunction.swift */,
 				02A975CF285C89570030450E /* Ethereum.swift */,
+				029E16FF2855E93700827717 /* GetNftAssets.swift */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -211,6 +233,7 @@
 				029E16F52855E67600827717 /* NftAsset.swift */,
 				029E17112856102600827717 /* ImageAsset.swift */,
 				029E16F72855E69F00827717 /* Error.swift */,
+				02B286EC2916777400E879F6 /* Page.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				029E16FD2855E79900827717 /* OpenSea.swift */,
-				029E16FF2855E93700827717 /* GetNftAssets.swift */,
 			);
 			path = OpenSea;
 			sourceTree = "<group>";
@@ -232,6 +254,15 @@
 				02D3587628588FDE00E44954 /* TextField.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		02B286DC291671AF00E879F6 /* Rinna */ = {
+			isa = PBXGroup;
+			children = (
+				02B286DD291671EA00E879F6 /* Rinna.swift */,
+				02B286DF2916720C00E879F6 /* TextToImage.swift */,
+			);
+			path = Rinna;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,12 +285,13 @@
 			packageProductDependencies = (
 				023386282855C8270081AC46 /* ComposableArchitecture */,
 				0233862B2855C88F0081AC46 /* web3swift */,
-				029E16FB2855E74500827717 /* Alamofire */,
 				029E17072855F1C800827717 /* ActivityIndicatorView */,
 				026C341C285780200089D6D8 /* FirebaseAuth */,
 				026C341E285780200089D6D8 /* FirebaseFunctions */,
 				026C3420285780200089D6D8 /* FirebaseStorage */,
 				02508A5928584D4300F0FCC0 /* SDWebImageSwiftUI */,
+				02B286EA2916761C00E879F6 /* SwiftUIPager */,
+				02B286EF2916884900E879F6 /* Alamofire */,
 			);
 			productName = NftWallet;
 			productReference = 023386162855C57B0081AC46 /* NFTウォレット.app */;
@@ -292,10 +324,11 @@
 			packageReferences = (
 				023386272855C8270081AC46 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				0233862A2855C88F0081AC46 /* XCRemoteSwiftPackageReference "web3swift" */,
-				029E16FA2855E74400827717 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				029E17062855F1C800827717 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
 				026C341B285780200089D6D8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				02508A5828584D4300F0FCC0 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				02B286E92916761C00E879F6 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
+				02B286EE2916884900E879F6 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 023386172855C57B0081AC46 /* Products */;
 			projectDirPath = "";
@@ -350,6 +383,8 @@
 				029E16F82855E69F00827717 /* Error.swift in Sources */,
 				02508A5D2858517600F0FCC0 /* UIView+Image.swift in Sources */,
 				023386352855CA3A0081AC46 /* Navigation+TCA.swift in Sources */,
+				02B286DE291671EA00E879F6 /* Rinna.swift in Sources */,
+				02B286ED2916777400E879F6 /* Page.swift in Sources */,
 				02D3587728588FDE00E44954 /* TextField.swift in Sources */,
 				023386302855C9260081AC46 /* RootVM.swift in Sources */,
 				029E171A28561D4F00827717 /* WalletView.swift in Sources */,
@@ -363,10 +398,14 @@
 				02A975D0285C89570030450E /* Ethereum.swift in Sources */,
 				029E171C28561DE000827717 /* WalletVM.swift in Sources */,
 				029E16FE2855E79900827717 /* OpenSea.swift in Sources */,
+				02B286E02916720C00E879F6 /* TextToImage.swift in Sources */,
 				0233861A2855C57B0081AC46 /* NftWalletApp.swift in Sources */,
 				026C3423285780C40089D6D8 /* FirebaseAuth.swift in Sources */,
 				02D3587528588E4300E44954 /* Button.swift in Sources */,
+				02B286E82916759900E879F6 /* PrepareMintPageView.swift in Sources */,
 				029E17162856114B00827717 /* AssetListVM.swift in Sources */,
+				02B286E42916750C00E879F6 /* TextToImageView.swift in Sources */,
+				02B286E2291674EC00E879F6 /* TextToImageVM.swift in Sources */,
 				029E170B2855F4A700827717 /* Environment.swift in Sources */,
 				029E16F62855E67600827717 /* NftAsset.swift in Sources */,
 				029E17052855F1A000827717 /* HUD.swift in Sources */,
@@ -375,6 +414,7 @@
 				02508A532858492E00F0FCC0 /* FirebaseStorage.swift in Sources */,
 				02508A5728584B4900F0FCC0 /* MintNftVM.swift in Sources */,
 				029E1714285610D500827717 /* AssetListView.swift in Sources */,
+				02B286E62916757C00E879F6 /* PrepareMintPageVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,17 +663,25 @@
 				kind = branch;
 			};
 		};
-		029E16FA2855E74400827717 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		029E17062855F1C800827717 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView.git";
 			requirement = {
 				branch = master;
 				kind = branch;
 			};
 		};
-		029E17062855F1C800827717 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+		02B286E92916761C00E879F6 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/exyte/ActivityIndicatorView.git";
+			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		02B286EE2916884900E879F6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -672,15 +720,20 @@
 			package = 026C341B285780200089D6D8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
-		029E16FB2855E74500827717 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 029E16FA2855E74400827717 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
 		029E17072855F1C800827717 /* ActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 029E17062855F1C800827717 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
 			productName = ActivityIndicatorView;
+		};
+		02B286EA2916761C00E879F6 /* SwiftUIPager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02B286E92916761C00E879F6 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
+			productName = SwiftUIPager;
+		};
+		02B286EF2916884900E879F6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02B286EE2916884900E879F6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

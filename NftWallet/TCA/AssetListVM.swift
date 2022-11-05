@@ -1,7 +1,7 @@
 import Combine
 import ComposableArchitecture
 import Foundation
-import web3swift
+import UIKit
 
 enum AssetListVM {
     static let reducer = Reducer<State, Action, Environment> { state, action, environment in
@@ -47,43 +47,10 @@ enum AssetListVM {
             case .shouldPullToRefresh(let val):
                 state.shouldPullToRefresh = val
                 return .none
-            case .showUploadNftView(let asset):
-                state.uploadNftView = MintNftVM.State(address: state.address, asset: asset)
-                state.isPresentedUploadNftView = true
+            case .showMintNftView:
                 return .none
-            case .isPresentedUploadNftView(let val):
-                state.isPresentedUploadNftView = val
-                return .none
-            case .uploadNftView(let action):
-                switch action {
-                    case .mint:
-                        return .none
-                    case .minted(.success(_)):
-                        state.isPresentedUploadNftView = false
-                        state.uploadNftView = nil
-                        return .none
-                    case .minted(.failure(_)):
-                        return .none
-                    case .back:
-                        state.isPresentedUploadNftView = false
-                        state.uploadNftView = nil
-                        return .none
-                    case .shouldShowHUD:
-                        return .none
-                }
         }
     }
-    .connect(
-        MintNftVM.reducer,
-        state: \.uploadNftView,
-        action: /AssetListVM.Action.uploadNftView,
-        environment: { env in
-            MintNftVM.Environment(
-                mainQueue: env.mainQueue,
-                backgroundQueue: env.backgroundQueue
-            )
-        }
-    )
 }
 
 extension AssetListVM {
@@ -95,22 +62,14 @@ extension AssetListVM {
         case endRefresh([ImageAsset])
         case shouldShowHUD(Bool)
         case shouldPullToRefresh(Bool)
-        case isPresentedUploadNftView(Bool)
-        case showUploadNftView(ImageAsset)
-
-        case uploadNftView(MintNftVM.Action)
+        case showMintNftView(UIImage)
     }
 
     struct State: Equatable {
-        let address: EthereumAddress
-
         var shouldShowHUD = false
         var shouldPullToRefresh = false
         var isInitialized = false
         var assets: [ImageAsset] = []
-        var isPresentedUploadNftView = false
-
-        var uploadNftView: MintNftVM.State?
     }
 
     struct Environment {

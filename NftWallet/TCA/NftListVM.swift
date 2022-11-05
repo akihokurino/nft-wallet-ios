@@ -1,7 +1,6 @@
 import Combine
 import ComposableArchitecture
 import Foundation
-import web3swift
 
 enum NftListVM {
     static let reducer = Reducer<State, Action, Environment> { state, action, environment in
@@ -15,7 +14,7 @@ enum NftListVM {
 
                 return OpenSeaClient.publish(
                     GetNftAssetsRequest(
-                        owner: state.address,
+                        owner: EthereumManager.shared.address,
                         offset: 0,
                         limit: 200
                     )
@@ -39,7 +38,7 @@ enum NftListVM {
 
                 return OpenSeaClient.publish(
                     GetNftAssetsRequest(
-                        owner: state.address,
+                        owner: EthereumManager.shared.address,
                         offset: 0,
                         limit: 200
                     )
@@ -77,8 +76,6 @@ extension NftListVM {
     }
 
     struct State: Equatable {
-        let address: EthereumAddress
-
         var shouldShowHUD = false
         var shouldPullToRefresh = false
         var isInitialized = false

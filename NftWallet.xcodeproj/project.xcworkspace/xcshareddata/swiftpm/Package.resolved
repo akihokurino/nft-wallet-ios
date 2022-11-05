@@ -235,6 +235,15 @@
       }
     },
     {
+      "identity" : "swiftuipager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fermoya/SwiftUIPager.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "4ddc04c801aac143090bb14cf26603a3bf9c74cb"
+      }
+    },
+    {
       "identity" : "web3swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/skywinder/web3swift.git",

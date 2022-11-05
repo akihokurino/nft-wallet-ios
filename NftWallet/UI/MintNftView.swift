@@ -76,9 +76,7 @@ struct MintNftView: View {
                         .onAppear {
                             frameSize = CGSize(width: 250, height: 250)
                             framePath = holeShapeMask()
-                            viewStore.asset.requestForCrop(with: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)) { image in
-                                self.image = image
-                            }
+                            self.image = viewStore.asset
                         }
 
                     Spacer().frame(height: 20)

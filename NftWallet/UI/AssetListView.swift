@@ -20,7 +20,9 @@ struct AssetListView: View {
                             .frame(maxWidth: AssetListView.gridItemSize)
                             .frame(height: AssetListView.gridItemSize)
                             .onTapGesture {
-                                viewStore.send(.showUploadNftView(asset))
+                                asset.requestForCrop(with: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)) { data in
+                                    viewStore.send(.showMintNftView(data!))
+                                }
                             }
                     }
                 }
@@ -44,18 +46,6 @@ struct AssetListView: View {
             )
             .refreshable {
                 await viewStore.send(.startRefresh, while: \.shouldPullToRefresh)
-            }
-            .fullScreenCover(isPresented: viewStore.binding(
-                get: \.isPresentedUploadNftView,
-                send: AssetListVM.Action.isPresentedUploadNftView
-            )) {
-                IfLetStore(
-                    store.scope(
-                        state: { $0.uploadNftView },
-                        action: AssetListVM.Action.uploadNftView
-                    ),
-                    then: MintNftView.init(store:)
-                )
             }
         }
     }

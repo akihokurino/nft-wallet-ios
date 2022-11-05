@@ -26,10 +26,10 @@ struct RootView: View {
                 NavigationView {
                     IfLetStore(
                         store.scope(
-                            state: { $0.photoListView },
-                            action: RootVM.Action.photoListView
+                            state: { $0.prepareMintPageView },
+                            action: RootVM.Action.prepareMintPageView
                         ),
-                        then: AssetListView.init(store:)
+                        then: PrepareMintPageView.init(store:)
                     )
                 }
                 .tabItem {

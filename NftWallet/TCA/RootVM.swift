@@ -1,6 +1,5 @@
 import ComposableArchitecture
 import Foundation
-import web3swift
 
 enum RootVM {
     static let reducer = Reducer<State, Action, Environment> { state, action, environment in
@@ -13,15 +12,18 @@ enum RootVM {
                 .map(RootVM.Action.endInitialize)
         case .endInitialize(.success(let id)):
             let address = EthereumManager.shared.address
-            state.nftListView = NftListVM.State(address: address)
-            state.photoListView = AssetListVM.State(address: address)
-            state.walletView = WalletVM.State(address: address)
+            state.nftListView = NftListVM.State()
+            state.prepareMintPageView = PrepareMintPageVM.State(
+                textToImageView: TextToImageVM.State(),
+                assetListView: AssetListVM.State()
+            )
+            state.walletView = WalletVM.State()
             return .none
         case .endInitialize(.failure(_)):
             return .none
         case .nftListView(let action):
             return .none
-        case .photoListView(let action):
+        case .prepareMintPageView(let action):
             return .none
         case .walletView(let action):
             return .none
@@ -39,11 +41,11 @@ enum RootVM {
         }
     )
     .connect(
-        AssetListVM.reducer,
-        state: \.photoListView,
-        action: /RootVM.Action.photoListView,
+        PrepareMintPageVM.reducer,
+        state: \.prepareMintPageView,
+        action: /RootVM.Action.prepareMintPageView,
         environment: { env in
-            AssetListVM.Environment(
+            PrepareMintPageVM.Environment(
                 mainQueue: env.mainQueue,
                 backgroundQueue: env.backgroundQueue
             )
@@ -68,13 +70,13 @@ extension RootVM {
         case endInitialize(Result<String, AppError>)
 
         case nftListView(NftListVM.Action)
-        case photoListView(AssetListVM.Action)
+        case prepareMintPageView(PrepareMintPageVM.Action)
         case walletView(WalletVM.Action)
     }
 
     struct State: Equatable {
         var nftListView: NftListVM.State?
-        var photoListView: AssetListVM.State?
+        var prepareMintPageView: PrepareMintPageVM.State?
         var walletView: WalletVM.State?
     }
 

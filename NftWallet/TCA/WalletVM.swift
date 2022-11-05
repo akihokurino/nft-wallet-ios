@@ -1,7 +1,6 @@
 import Combine
 import ComposableArchitecture
 import Foundation
-import web3swift
 
 enum WalletVM {
     static let reducer = Reducer<State, Action, Environment> { state, action, environment in
@@ -78,8 +77,6 @@ extension WalletVM {
     }
 
     struct State: Equatable {
-        let address: EthereumAddress
-
         var shouldShowHUD = false
         var shouldPullToRefresh = false
         var isInitialized = false

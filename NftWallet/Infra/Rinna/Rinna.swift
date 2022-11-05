@@ -3,7 +3,7 @@ import Combine
 import Foundation
 import SwiftUI
 
-protocol OpenSeaProtocol {
+protocol RinnaProtocol {
     associatedtype ResponseType
 
     var method: HTTPMethod { get }
@@ -13,13 +13,16 @@ protocol OpenSeaProtocol {
     var allowsConstrainedNetworkAccess: Bool { get }
 }
 
-extension OpenSeaProtocol {
+extension RinnaProtocol {
     var baseURL: URL {
-        return URL(string: "https://testnets-api.opensea.io")!
+        return URL(string: "https://api.rinna.co.jp")!
     }
 
     var headers: [String: String]? {
-        return nil
+        return [
+            "Ocp-Apim-Subscription-Key": Env["RINNA_KEY"]!,
+            "Content-Type": "application/json"
+        ]
     }
 
     var allowsConstrainedNetworkAccess: Bool {
@@ -27,12 +30,12 @@ extension OpenSeaProtocol {
     }
 }
 
-protocol OpenSeaRequestProtocol: OpenSeaProtocol, URLRequestConvertible {
+protocol RinnaRequestProtocol: RinnaProtocol, URLRequestConvertible {
     var parameters: Parameters? { get }
     var encoding: URLEncoding { get }
 }
 
-extension OpenSeaRequestProtocol {
+extension RinnaRequestProtocol {
     var encoding: URLEncoding {
         return URLEncoding.default
     }
@@ -45,19 +48,19 @@ extension OpenSeaRequestProtocol {
         urlRequest.allowsConstrainedNetworkAccess = allowsConstrainedNetworkAccess
         
         if let params = parameters {
-            urlRequest = try encoding.encode(urlRequest, with: params)
+            urlRequest.httpBody = try! JSONSerialization.data(withJSONObject: params, options: [])
         }
 
         return urlRequest
     }
 }
 
-struct OpenSeaClient {
+struct RinnaClient {
     private static let successRange = 200 ..< 300
     private static let contentType = "application/json"
-    
+
     static func publish<T, V>(_ request: T) -> Future<V, AppError>
-        where T: OpenSeaRequestProtocol, V: Codable, T.ResponseType == V
+        where T: RinnaRequestProtocol, V: Codable, T.ResponseType == V
     {
         return Future { promise in
             let api = AF.request(request)

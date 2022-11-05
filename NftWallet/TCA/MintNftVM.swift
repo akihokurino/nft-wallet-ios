@@ -3,7 +3,6 @@ import ComposableArchitecture
 import SDWebImage
 import SDWebImageSwiftUI
 import UIKit
-import web3swift
 
 enum MintNftVM {
     static let reducer = Reducer<State, Action, Environment> { state, action, environment in
@@ -63,8 +62,7 @@ extension MintNftVM {
     }
 
     struct State: Equatable {
-        let address: EthereumAddress
-        let asset: ImageAsset
+        let asset: UIImage
 
         var shouldShowHUD = false
     }
