@@ -6,7 +6,7 @@ import UIKit
 
 struct MintNftView: View {
     let store: Store<MintNftVM.State, MintNftVM.Action>
-    
+
     @State private var image: UIImage? = nil
     @State private var currentPosition: CGSize = .zero
     @State private var newPosition: CGSize = .zero
@@ -92,18 +92,21 @@ struct MintNftView: View {
                             .padding(.horizontal, 16)
                         Spacer().frame(height: 10)
                     }
-                    
+
                     Group {
                         Spacer().frame(height: 20)
                         ActionButton(text: "NFTを発行する", buttonType: name.isEmpty || description.isEmpty ? .disable : .primary) {
                             shouldHideFrame = true
-                            let paylaod = RegisterNftPayload(
-                                image: convertViewToImage(),
-                                name: name,
-                                description: description,
-                                externalUrl: externalUrl
-                            )
-                            viewStore.send(.mint(paylaod))
+
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                let paylaod = RegisterNftPayload(
+                                    image: convertViewToImage(),
+                                    name: name,
+                                    description: description,
+                                    externalUrl: externalUrl
+                                )
+                                viewStore.send(.mint(paylaod))
+                            }
                         }
                         .padding(.horizontal, 16)
 
@@ -179,7 +182,7 @@ struct FrameBackgroundView: View {
         DispatchQueue.main.async {
             let globalRect = proxy.frame(in: .global)
             let origin = CGPoint(x: globalRect.midX - size.width / 2, y: globalRect.midY - size.height / 2)
-            self.rect = CGRect(x: origin.x, y: origin.y, width: size.width - 2, height: size.height - 2)
+            self.rect = CGRect(x: origin.x, y: origin.y, width: size.width, height: size.height)
         }
         return Rectangle().fill(Color.clear)
     }

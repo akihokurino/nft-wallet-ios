@@ -16,7 +16,7 @@ enum MintNftVM {
 
             let id = UUID().uuidString
             let data = payload.image.jpegData(compressionQuality: 1.0)!
-            
+
             return FirebaseStorageManager.shared.upload(data: data, path: "assets/\(id).jpeg")
                 .flatMap { path in
                     CloudFunctionManager

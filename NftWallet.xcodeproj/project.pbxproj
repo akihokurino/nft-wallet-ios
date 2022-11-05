@@ -206,7 +206,6 @@
 				02508A522858492E00F0FCC0 /* FirebaseStorage.swift */,
 				026C3427285789B70089D6D8 /* CloudFunction.swift */,
 				02A975CF285C89570030450E /* Ethereum.swift */,
-				029E16FF2855E93700827717 /* GetNftAssets.swift */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -242,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				029E16FD2855E79900827717 /* OpenSea.swift */,
+				029E16FF2855E93700827717 /* GetNftAssets.swift */,
 			);
 			path = OpenSea;
 			sourceTree = "<group>";

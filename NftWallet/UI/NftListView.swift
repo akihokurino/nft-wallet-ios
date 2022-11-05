@@ -14,10 +14,12 @@ struct NftListView: View {
         WithViewStore(store) { viewStore in
             List {
                 LazyVGrid(columns: gridItemLayout, alignment: HorizontalAlignment.leading, spacing: 2) {
-                    ForEach(viewStore.state.assets, id: \.id) { asset in
+                    ForEach(viewStore.state.assets.filter { $0.data.image_url != nil }, id: \.id) { asset in
                         NftView(asset: asset)
                             .onTapGesture {
-                                UIApplication.shared.open(URL(string: asset.data.permalink)!)
+                                if let link = asset.data.permalink {
+                                    UIApplication.shared.open(URL(string: link)!)
+                                }
                             }
                             .padding(.vertical, 10)
                     }
@@ -52,7 +54,7 @@ struct NftView: View {
     let asset: NftAsset
 
     var body: some View {
-        AsyncImage(url: URL(string: asset.data.image_url)) { phase in
+        AsyncImage(url: URL(string: asset.data.image_url!)) { phase in
             if let image = phase.image {
                 VStack(alignment: .leading) {
                     image
@@ -60,7 +62,7 @@ struct NftView: View {
                         .aspectRatio(contentMode: .fill)
                         .cornerRadius(10)
                     Spacer()
-                    Text(asset.data.name).font(.headline)
+                    Text(asset.data.name ?? "").font(.headline)
                     Spacer().frame(height: 5)
                     Text("\(asset.data.asset_contract.schema_name)").font(.caption)
                 }

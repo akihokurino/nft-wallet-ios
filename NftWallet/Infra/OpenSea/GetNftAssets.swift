@@ -43,10 +43,10 @@ struct GetNftAssetsResponse: Codable, Equatable {
 
 struct NftAssetResponse: Codable, Identifiable, Equatable, Hashable {
     let id: Int
-    let image_url: String
-    let name: String
-    let description: String
-    let permalink: String
+    let image_url: String?
+    let name: String?
+    let description: String?
+    let permalink: String?
     let token_id: String
     let asset_contract: NftContractResponse
 }
