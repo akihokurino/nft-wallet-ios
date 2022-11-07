@@ -1,11 +1,10 @@
 //SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.17;
 
-import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract NftWallet1155 is Context, ERC1155, Ownable {
+contract NftWallet1155 is ERC1155, Ownable {
     mapping(string => uint256) private _ipfsHash2token;
     mapping(uint256 => string) private _token2ipfsHash;
     uint256 _localTokenId = 1;
