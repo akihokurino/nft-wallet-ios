@@ -8,7 +8,7 @@
 - goerli
 - opensea ( https://opensea.io/ )
 - web3swift ( https://github.com/skywinder/web3swift )
-- solidity v0.8.11
+- solidity v0.8.17
 - hardhat ( https://hardhat.org/ )
 - open zeppelin ( https://openzeppelin.com/ )
 - infura ( https://infura.io/ )
