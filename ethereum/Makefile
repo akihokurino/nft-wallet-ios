@@ -8,5 +8,11 @@ compile:
 test:
 	npx hardhat test
 
-deploy:
+node:
+	npx hardhat node
+
+deploy-local:
+	npx hardhat run scripts/deploy.ts --network hardhat
+
+deploy-goerli:
 	npx hardhat run scripts/deploy.ts --network goerli
