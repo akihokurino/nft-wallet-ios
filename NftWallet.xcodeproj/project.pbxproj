@@ -12,7 +12,6 @@
 		0233861E2855C57C0081AC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0233861D2855C57C0081AC46 /* Assets.xcassets */; };
 		023386212855C57C0081AC46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023386202855C57C0081AC46 /* Preview Assets.xcassets */; };
 		023386292855C8270081AC46 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 023386282855C8270081AC46 /* ComposableArchitecture */; };
-		0233862C2855C88F0081AC46 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 0233862B2855C88F0081AC46 /* web3swift */; };
 		023386302855C9260081AC46 /* RootVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233862F2855C9260081AC46 /* RootVM.swift */; };
 		023386332855C9C20081AC46 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023386322855C9C20081AC46 /* DataStore.swift */; };
 		023386352855CA3A0081AC46 /* Navigation+TCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023386342855CA3A0081AC46 /* Navigation+TCA.swift */; };
@@ -47,6 +46,7 @@
 		02B286EB2916761C00E879F6 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 02B286EA2916761C00E879F6 /* SwiftUIPager */; };
 		02B286ED2916777400E879F6 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286EC2916777400E879F6 /* Page.swift */; };
 		02B286F02916884900E879F6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 02B286EF2916884900E879F6 /* Alamofire */; };
+		02C9A89B295C3B4500761BC8 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 02C9A89A295C3B4500761BC8 /* web3swift */; };
 		02D3587528588E4300E44954 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3587428588E4300E44954 /* Button.swift */; };
 		02D3587728588FDE00E44954 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3587628588FDE00E44954 /* TextField.swift */; };
 		02DF7DEC295C1E9200EDA71C /* IPFS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF7DEB295C1E9200EDA71C /* IPFS.swift */; };
@@ -105,7 +105,7 @@
 				02508A5A28584D4300F0FCC0 /* SDWebImageSwiftUI in Frameworks */,
 				02B286EB2916761C00E879F6 /* SwiftUIPager in Frameworks */,
 				029E17082855F1C800827717 /* ActivityIndicatorView in Frameworks */,
-				0233862C2855C88F0081AC46 /* web3swift in Frameworks */,
+				02C9A89B295C3B4500761BC8 /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,11 +280,11 @@
 			name = NftWallet;
 			packageProductDependencies = (
 				023386282855C8270081AC46 /* ComposableArchitecture */,
-				0233862B2855C88F0081AC46 /* web3swift */,
 				029E17072855F1C800827717 /* ActivityIndicatorView */,
 				02508A5928584D4300F0FCC0 /* SDWebImageSwiftUI */,
 				02B286EA2916761C00E879F6 /* SwiftUIPager */,
 				02B286EF2916884900E879F6 /* Alamofire */,
+				02C9A89A295C3B4500761BC8 /* web3swift */,
 			);
 			productName = NftWallet;
 			productReference = 023386162855C57B0081AC46 /* NFTウォレット.app */;
@@ -316,11 +316,11 @@
 			mainGroup = 0233860D2855C57B0081AC46;
 			packageReferences = (
 				023386272855C8270081AC46 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				0233862A2855C88F0081AC46 /* XCRemoteSwiftPackageReference "web3swift" */,
 				029E17062855F1C800827717 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
 				02508A5828584D4300F0FCC0 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				02B286E92916761C00E879F6 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
 				02B286EE2916884900E879F6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				02C9A899295C3B4500761BC8 /* XCRemoteSwiftPackageReference "web3swift" */,
 			);
 			productRefGroup = 023386172855C57B0081AC46 /* Products */;
 			projectDirPath = "";
@@ -629,14 +629,6 @@
 				kind = branch;
 			};
 		};
-		0233862A2855C88F0081AC46 /* XCRemoteSwiftPackageReference "web3swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/skywinder/web3swift.git";
-			requirement = {
-				branch = develop;
-				kind = branch;
-			};
-		};
 		02508A5828584D4300F0FCC0 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
@@ -669,6 +661,14 @@
 				kind = branch;
 			};
 		};
+		02C9A899295C3B4500761BC8 /* XCRemoteSwiftPackageReference "web3swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/skywinder/web3swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.6.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -676,11 +676,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 023386272855C8270081AC46 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
-		};
-		0233862B2855C88F0081AC46 /* web3swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0233862A2855C88F0081AC46 /* XCRemoteSwiftPackageReference "web3swift" */;
-			productName = web3swift;
 		};
 		02508A5928584D4300F0FCC0 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -701,6 +696,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02B286EE2916884900E879F6 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		02C9A89A295C3B4500761BC8 /* web3swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02C9A899295C3B4500761BC8 /* XCRemoteSwiftPackageReference "web3swift" */;
+			productName = web3swift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
