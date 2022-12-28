@@ -7,16 +7,13 @@
 - ethereum
 - goerli
 - opensea ( https://opensea.io/ )
-- web3swift ( https://github.com/skywinder/web3swift )
+- web3swift v2.6.5 ( https://github.com/skywinder/web3swift )
 - solidity v0.8.17
 - hardhat ( https://hardhat.org/ )
 - open zeppelin ( https://openzeppelin.com/ )
 - infura ( https://infura.io/ )
 - metamask
-- moralis ( https://moralis.io/ )
 - ipfs
-- firebase storage
-- firebase cloud function
 
 ## Images
 
