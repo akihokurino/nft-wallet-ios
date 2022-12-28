@@ -16,9 +16,6 @@ struct MintNftView: View {
     @State private var framePath = Path()
     @State private var cropRect: CGRect = .zero
     @State private var shouldHideFrame: Bool = false
-    @State private var name: String = ""
-    @State private var description: String = ""
-    @State private var externalUrl: String = ""
 
     var cropView: some View {
         WithViewStore(store) { _ in
@@ -66,58 +63,38 @@ struct MintNftView: View {
 
             let simultaneous = SimultaneousGesture(dragGesture, magnificationGesture)
 
-            ScrollView {
-                VStack(alignment: .leading) {
-                    cropView
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-                        .clipped()
-                        .gesture(simultaneous)
-                        .background(FrameBackgroundView(rect: $cropRect, frameSize: $frameSize))
-                        .onAppear {
-                            frameSize = CGSize(width: 250, height: 250)
-                            framePath = holeShapeMask()
-                            self.image = viewStore.asset
-                        }
-
-                    Spacer().frame(height: 20)
-
-                    Group {
-                        TextFieldView(value: $name, label: "名称", keyboardType: .default)
-                            .padding(.horizontal, 16)
-                        Spacer().frame(height: 10)
-                        TextFieldView(value: $description, label: "説明文", keyboardType: .default)
-                            .padding(.horizontal, 16)
-                        Spacer().frame(height: 10)
-                        TextFieldView(value: $externalUrl, label: "外部URL", keyboardType: .URL)
-                            .padding(.horizontal, 16)
-                        Spacer().frame(height: 10)
+            VStack {
+                cropView
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                    .clipped()
+                    .gesture(simultaneous)
+                    .background(FrameBackgroundView(rect: $cropRect, frameSize: $frameSize))
+                    .onAppear {
+                        frameSize = CGSize(width: 250, height: 250)
+                        framePath = holeShapeMask()
+                        self.image = viewStore.asset
                     }
 
-                    Group {
-                        Spacer().frame(height: 20)
-                        ActionButton(text: "NFTを発行する", buttonType: name.isEmpty || description.isEmpty ? .disable : .primary) {
+                Spacer().frame(height: 20)
+
+                Group {
+                    HStack {
+                        ActionButton(text: "NFTを発行する", buttonType: .primary) {
                             shouldHideFrame = true
 
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 let paylaod = RegisterNftPayload(
-                                    image: convertViewToImage(),
-                                    name: name,
-                                    description: description,
-                                    externalUrl: externalUrl
+                                    image: convertViewToImage()
                                 )
                                 viewStore.send(.mint(paylaod))
                             }
                         }
-                        .padding(.horizontal, 16)
 
-                        Spacer().frame(height: 10)
                         ActionButton(text: "キャンセル", buttonType: .caution) {
                             viewStore.send(.back)
                         }
-                        .padding(.horizontal, 16)
                     }
-
-                    Spacer()
+                    .padding(.horizontal, 16)
                 }
             }
             .overlay(
@@ -157,7 +134,7 @@ struct FrameForegroundView: View {
         RoundedRectangle(cornerRadius: 10)
             .stroke(style:
                 StrokeStyle(
-                    lineWidth: 2
+                    lineWidth: 5
                 ))
             .fill(Color.white)
     }

@@ -8,18 +8,15 @@ enum MintNftVM {
     static let reducer = Reducer<State, Action, Environment> { state, action, environment in
         switch action {
         case .mint(let payload):
-            if payload.name.isEmpty || payload.description.isEmpty {
-                return .none
-            }
-
             state.shouldShowHUD = true
 
+            let name = "NWSample"
             let data = payload.image.jpegData(compressionQuality: 1.0)!
-            return IPFSClient.upload(data: data, filename: payload.name)
+            return IPFSClient.upload(data: data, filename: name)
                 .flatMap { hash in
                     let url = "\(Env["IPFS_GATEWAY"]!)/ipfs/\(hash)"
-                    let data = try! JSONEncoder().encode(Metadata(name: payload.name, image: url, description: payload.description))
-                    return IPFSClient.upload(data: data, filename: payload.name)
+                    let data = try! JSONEncoder().encode(Metadata(name: name, image: url, description: "nft wallet sample token"))
+                    return IPFSClient.upload(data: data, filename: name)
                 }
                 .flatMap { hash in
                     return EthereumManager.shared.mint(hash: hash).map { _ in true }
@@ -45,9 +42,6 @@ enum MintNftVM {
 
 struct RegisterNftPayload: Equatable {
     let image: UIImage
-    let name: String
-    let description: String
-    let externalUrl: String
 }
 
 extension MintNftVM {
