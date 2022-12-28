@@ -56,7 +56,7 @@ struct RootView: View {
                 }.tag(3)
             }
             .onAppear {
-                viewStore.send(.startInitialize)
+                viewStore.send(.initialize)
             }
         }
     }

@@ -14,19 +14,16 @@ enum MintNftVM {
 
             state.shouldShowHUD = true
 
-            let id = UUID().uuidString
             let data = payload.image.jpegData(compressionQuality: 1.0)!
-
-            return FirebaseStorageManager.shared.upload(data: data, path: "assets/\(id).jpeg")
-                .flatMap { path in
-                    CloudFunctionManager
-                        .shared
-                        .uploadNftMetadata(path: path,
-                                           name: payload.name,
-                                           description: payload.description,
-                                           externalUrl: payload.externalUrl)
+            return IPFSClient.upload(data: data, filename: payload.name)
+                .flatMap { hash in
+                    let url = "\(Env["IPFS_GATEWAY"]!)/ipfs/\(hash)"
+                    let data = try! JSONEncoder().encode(Metadata(name: payload.name, image: url, description: payload.description))
+                    return IPFSClient.upload(data: data, filename: payload.name)
                 }
-                .flatMap { file in EthereumManager.shared.mint(file: file).map { _ in true } }
+                .flatMap { hash in
+                    return EthereumManager.shared.mint(hash: hash).map { _ in true }
+                }
                 .subscribe(on: environment.backgroundQueue)
                 .receive(on: environment.mainQueue)
                 .catchToEffect()

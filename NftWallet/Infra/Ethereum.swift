@@ -62,7 +62,7 @@ class EthereumManager {
         return Units.toEtherString(wei: balanceWei)
     }
 
-    func mint(file: IPFS) -> Future<Void, AppError> {
+    func mint(hash: String) -> Future<Void, AppError> {
         let erc721 = web3Cli().contract(erc721ABI, at: EthereumAddress(Env["NFT_WALLET_721_ADDRESS"]!)!, abiVersion: 2)!
         let erc1155 = web3Cli().contract(erc1155ABI, at: EthereumAddress(Env["NFT_WALLET_1155_ADDRESS"]!)!, abiVersion: 2)!
         var options = TransactionOptions.defaultOptions
@@ -74,13 +74,13 @@ class EthereumManager {
             do {
                 _ = try erc721.write(
                     "mint",
-                    parameters: [self.address.address, file.hash] as [AnyObject],
+                    parameters: [self.address.address, hash] as [AnyObject],
                     extraData: Data(),
                     transactionOptions: options)!.send(password: self.password)
 
                 _ = try erc1155.write(
                     "mint",
-                    parameters: [self.address.address, file.hash, 10] as [AnyObject],
+                    parameters: [self.address.address, hash, 10] as [AnyObject],
                     extraData: Data(),
                     transactionOptions: options)!.send(password: self.password)
 

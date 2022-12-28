@@ -2,24 +2,15 @@ import ComposableArchitecture
 import Foundation
 
 enum RootVM {
-    static let reducer = Reducer<State, Action, Environment> { state, action, environment in
+    static let reducer = Reducer<State, Action, Environment> { state, action, _ in
         switch action {
-        case .startInitialize:
-            return FirebaseAuthManager.shared.signInAnonymously()
-                .subscribe(on: environment.backgroundQueue)
-                .receive(on: environment.mainQueue)
-                .catchToEffect()
-                .map(RootVM.Action.endInitialize)
-        case .endInitialize(.success(let id)):
-            let address = EthereumManager.shared.address
+        case .initialize:
             state.nftListView = NftListVM.State()
             state.prepareMintPageView = PrepareMintPageVM.State(
                 textToImageView: TextToImageVM.State(),
                 assetListView: AssetListVM.State()
             )
             state.walletView = WalletVM.State()
-            return .none
-        case .endInitialize(.failure(_)):
             return .none
         case .nftListView(let action):
             return .none
@@ -66,9 +57,8 @@ enum RootVM {
 
 extension RootVM {
     enum Action: Equatable {
-        case startInitialize
-        case endInitialize(Result<String, AppError>)
-
+        case initialize
+        
         case nftListView(NftListVM.Action)
         case prepareMintPageView(PrepareMintPageVM.Action)
         case walletView(WalletVM.Action)

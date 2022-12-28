@@ -42,7 +42,10 @@ contract NftWallet1155 is ERC1155, Ownable {
 
         return
             string(
-                abi.encodePacked("https://ipfs.moralis.io:2053/ipfs/", ipfsHash)
+                abi.encodePacked(
+                    "https://akiho-playground.infura-ipfs.io/ipfs/",
+                    ipfsHash
+                )
             );
     }
 }

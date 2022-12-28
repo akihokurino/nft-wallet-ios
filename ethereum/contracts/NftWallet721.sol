@@ -35,7 +35,10 @@ contract NftWallet721 is ERC721Enumerable, Ownable {
 
         return
             string(
-                abi.encodePacked("https://ipfs.moralis.io:2053/ipfs/", ipfsHash)
+                abi.encodePacked(
+                    "https://akiho-playground.infura-ipfs.io/ipfs/",
+                    ipfsHash
+                )
             );
     }
 }

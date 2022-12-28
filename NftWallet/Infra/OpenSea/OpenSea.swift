@@ -1,7 +1,6 @@
 import Alamofire
-import Combine
 import Foundation
-import SwiftUI
+import Combine
 
 protocol OpenSeaProtocol {
     associatedtype ResponseType
