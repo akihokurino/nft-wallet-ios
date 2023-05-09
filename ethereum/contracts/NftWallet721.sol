@@ -24,21 +24,11 @@ contract NftWallet721 is ERC721Enumerable, Ownable {
         _localTokenId += 1;
     }
 
-    function tokenURI(uint256 tokenId)
-        public
-        view
-        virtual
-        override
-        returns (string memory)
-    {
+    function tokenURI(
+        uint256 tokenId
+    ) public view virtual override returns (string memory) {
         string memory ipfsHash = _token2ipfsHash[tokenId];
 
-        return
-            string(
-                abi.encodePacked(
-                    "https://akiho-playground.infura-ipfs.io/ipfs/",
-                    ipfsHash
-                )
-            );
+        return string(abi.encodePacked("ipfs://", ipfsHash));
     }
 }

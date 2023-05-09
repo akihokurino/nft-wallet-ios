@@ -9,13 +9,9 @@ describe("NftWallet1155", function () {
     await contract.deployed();
 
     await contract.mint(owner.address, "1234", 1);
-    expect(await contract.uri(1)).to.equal(
-      "https://ipfs.moralis.io:2053/ipfs/1234"
-    );
+    expect(await contract.uri(1)).to.equal("ipfs://1234");
 
     await contract.mint(owner.address, "5678", 1);
-    expect(await contract.uri(2)).to.equal(
-      "https://ipfs.moralis.io:2053/ipfs/5678"
-    );
+    expect(await contract.uri(2)).to.equal("ipfs://5678");
   });
 });

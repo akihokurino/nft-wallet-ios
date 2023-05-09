@@ -13,7 +13,7 @@ struct WalletView: View {
                             .lineLimit(nil)
                     }
                     Spacer().frame(height: 20)
-                    Text("\(viewStore.state.balance) Ether")
+                    Text("\(viewStore.state.balance) MATIC")
                         .frame(
                             minWidth: 0,
                             maxWidth: .infinity,
@@ -25,12 +25,6 @@ struct WalletView: View {
                         .foregroundColor(Color.white)
                         .cornerRadius(5.0)
                         .font(.largeTitle)
-
-                    Spacer().frame(height: 20)
-
-                    ActionButton(text: "Moralis", buttonType: .primary) {
-                        UIApplication.shared.open(URL(string: "https://admin.moralis.io/dapps")!)
-                    }
                 }
                 .padding()
                 .listRowSeparator(.hidden)

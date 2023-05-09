@@ -5,15 +5,15 @@
 - the composable architecture ( https://github.com/pointfreeco/swift-composable-architecture ）
 - alamofire ( https://github.com/Alamofire/Alamofire )
 - ethereum
-- goerli
+- mumbai
 - opensea ( https://opensea.io/ )
 - web3swift v2.6.5 ( https://github.com/skywinder/web3swift )
 - solidity v0.8.17
 - hardhat ( https://hardhat.org/ )
 - open zeppelin ( https://openzeppelin.com/ )
 - infura ( https://infura.io/ )
-- metamask
 - ipfs
+- openai
 
 ## Images
 

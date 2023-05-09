@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0209E38E2A0A970C00F0F79A /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0209E38D2A0A970C00F0F79A /* Config.xcconfig */; };
+		0209E3902A0A989C00F0F79A /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0209E38F2A0A989C00F0F79A /* Env.swift */; };
+		0209E3932A0AA23100F0F79A /* URLDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0209E3922A0AA23100F0F79A /* URLDownloader.swift */; };
 		0233861A2855C57B0081AC46 /* NftWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023386192855C57B0081AC46 /* NftWalletApp.swift */; };
 		0233861C2855C57B0081AC46 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233861B2855C57B0081AC46 /* RootView.swift */; };
 		0233861E2855C57C0081AC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0233861D2855C57C0081AC46 /* Assets.xcassets */; };
@@ -27,7 +30,6 @@
 		029E17022855EFA900827717 /* NftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17012855EFA900827717 /* NftListView.swift */; };
 		029E17052855F1A000827717 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17042855F1A000827717 /* HUD.swift */; };
 		029E17082855F1C800827717 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 029E17072855F1C800827717 /* ActivityIndicatorView */; };
-		029E170B2855F4A700827717 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E170A2855F4A700827717 /* Environment.swift */; };
 		029E171028560FCF00827717 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E170F28560FCF00827717 /* Photos.swift */; };
 		029E17122856102600827717 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E17112856102600827717 /* ImageAsset.swift */; };
 		029E1714285610D500827717 /* AssetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029E1713285610D500827717 /* AssetListView.swift */; };
@@ -37,8 +39,8 @@
 		02A975CC285C88420030450E /* NftWallet721.abi.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A975CB285C88420030450E /* NftWallet721.abi.json */; };
 		02A975CE285C884E0030450E /* NftWallet1155.abi.json in Resources */ = {isa = PBXBuildFile; fileRef = 02A975CD285C884E0030450E /* NftWallet1155.abi.json */; };
 		02A975D0285C89570030450E /* Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A975CF285C89570030450E /* Ethereum.swift */; };
-		02B286DE291671EA00E879F6 /* Rinna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286DD291671EA00E879F6 /* Rinna.swift */; };
-		02B286E02916720C00E879F6 /* TextToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286DF2916720C00E879F6 /* TextToImage.swift */; };
+		02B286DE291671EA00E879F6 /* OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286DD291671EA00E879F6 /* OpenAI.swift */; };
+		02B286E02916720C00E879F6 /* ImagesGenerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286DF2916720C00E879F6 /* ImagesGenerations.swift */; };
 		02B286E2291674EC00E879F6 /* TextToImageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286E1291674EC00E879F6 /* TextToImageVM.swift */; };
 		02B286E42916750C00E879F6 /* TextToImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286E32916750C00E879F6 /* TextToImageView.swift */; };
 		02B286E62916757C00E879F6 /* PrepareMintPageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B286E52916757C00E879F6 /* PrepareMintPageVM.swift */; };
@@ -54,6 +56,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0209E38D2A0A970C00F0F79A /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		0209E38F2A0A989C00F0F79A /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		0209E3912A0A993900F0F79A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0209E3922A0AA23100F0F79A /* URLDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLDownloader.swift; sourceTree = "<group>"; };
 		023386162855C57B0081AC46 /* NFTウォレット.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NFTウォレット.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		023386192855C57B0081AC46 /* NftWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftWalletApp.swift; sourceTree = "<group>"; };
 		0233861B2855C57B0081AC46 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -72,7 +78,6 @@
 		029E16FF2855E93700827717 /* GetNftAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNftAssets.swift; sourceTree = "<group>"; };
 		029E17012855EFA900827717 /* NftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftListView.swift; sourceTree = "<group>"; };
 		029E17042855F1A000827717 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
-		029E170A2855F4A700827717 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		029E170F28560FCF00827717 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		029E17112856102600827717 /* ImageAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
 		029E1713285610D500827717 /* AssetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListView.swift; sourceTree = "<group>"; };
@@ -82,8 +87,8 @@
 		02A975CB285C88420030450E /* NftWallet721.abi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NftWallet721.abi.json; sourceTree = "<group>"; };
 		02A975CD285C884E0030450E /* NftWallet1155.abi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NftWallet1155.abi.json; sourceTree = "<group>"; };
 		02A975CF285C89570030450E /* Ethereum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ethereum.swift; sourceTree = "<group>"; };
-		02B286DD291671EA00E879F6 /* Rinna.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rinna.swift; sourceTree = "<group>"; };
-		02B286DF2916720C00E879F6 /* TextToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToImage.swift; sourceTree = "<group>"; };
+		02B286DD291671EA00E879F6 /* OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI.swift; sourceTree = "<group>"; };
+		02B286DF2916720C00E879F6 /* ImagesGenerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGenerations.swift; sourceTree = "<group>"; };
 		02B286E1291674EC00E879F6 /* TextToImageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToImageVM.swift; sourceTree = "<group>"; };
 		02B286E32916750C00E879F6 /* TextToImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToImageView.swift; sourceTree = "<group>"; };
 		02B286E52916757C00E879F6 /* PrepareMintPageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareMintPageVM.swift; sourceTree = "<group>"; };
@@ -136,8 +141,10 @@
 				0233862D2855C8F90081AC46 /* TCA */,
 				0233862E2855C8FF0081AC46 /* UI */,
 				023386192855C57B0081AC46 /* NftWalletApp.swift */,
-				029E170A2855F4A700827717 /* Environment.swift */,
+				0209E38F2A0A989C00F0F79A /* Env.swift */,
 				0233861D2855C57C0081AC46 /* Assets.xcassets */,
+				0209E3912A0A993900F0F79A /* Info.plist */,
+				0209E38D2A0A970C00F0F79A /* Config.xcconfig */,
 				02A975CB285C88420030450E /* NftWallet721.abi.json */,
 				02A975CD285C884E0030450E /* NftWallet1155.abi.json */,
 				0233861F2855C57C0081AC46 /* Preview Content */,
@@ -188,11 +195,12 @@
 			isa = PBXGroup;
 			children = (
 				02DF7DEA295C1E8300EDA71C /* IPFS */,
-				02B286DC291671AF00E879F6 /* Rinna */,
+				02B286DC291671AF00E879F6 /* OpenAI */,
 				029E16F92855E71500827717 /* OpenSea */,
 				023386322855C9C20081AC46 /* DataStore.swift */,
 				029E170F28560FCF00827717 /* Photos.swift */,
 				02A975CF285C89570030450E /* Ethereum.swift */,
+				0209E3922A0AA23100F0F79A /* URLDownloader.swift */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -244,13 +252,13 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		02B286DC291671AF00E879F6 /* Rinna */ = {
+		02B286DC291671AF00E879F6 /* OpenAI */ = {
 			isa = PBXGroup;
 			children = (
-				02B286DD291671EA00E879F6 /* Rinna.swift */,
-				02B286DF2916720C00E879F6 /* TextToImage.swift */,
+				02B286DD291671EA00E879F6 /* OpenAI.swift */,
+				02B286DF2916720C00E879F6 /* ImagesGenerations.swift */,
 			);
-			path = Rinna;
+			path = OpenAI;
 			sourceTree = "<group>";
 		};
 		02DF7DEA295C1E8300EDA71C /* IPFS */ = {
@@ -268,7 +276,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 023386242855C57C0081AC46 /* Build configuration list for PBXNativeTarget "NftWallet" */;
 			buildPhases = (
-				029E17092855F41700827717 /* Build Env */,
 				023386122855C57B0081AC46 /* Sources */,
 				023386132855C57B0081AC46 /* Frameworks */,
 				023386142855C57B0081AC46 /* Resources */,
@@ -337,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				023386212855C57C0081AC46 /* Preview Assets.xcassets in Resources */,
+				0209E38E2A0A970C00F0F79A /* Config.xcconfig in Resources */,
 				02A975CE285C884E0030450E /* NftWallet1155.abi.json in Resources */,
 				0233861E2855C57C0081AC46 /* Assets.xcassets in Resources */,
 				02A975CC285C88420030450E /* NftWallet721.abi.json in Resources */,
@@ -345,36 +353,16 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		029E17092855F41700827717 /* Build Env */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Build Env";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/build-env.sh\" \"${SRCROOT}/.env\" \"${SRCROOT}/${PROJECT}\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		023386122855C57B0081AC46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				029E16F82855E69F00827717 /* Error.swift in Sources */,
+				0209E3902A0A989C00F0F79A /* Env.swift in Sources */,
 				02508A5D2858517600F0FCC0 /* UIView+Image.swift in Sources */,
 				023386352855CA3A0081AC46 /* Navigation+TCA.swift in Sources */,
-				02B286DE291671EA00E879F6 /* Rinna.swift in Sources */,
+				02B286DE291671EA00E879F6 /* OpenAI.swift in Sources */,
 				02B286ED2916777400E879F6 /* Page.swift in Sources */,
 				02D3587728588FDE00E44954 /* TextField.swift in Sources */,
 				023386302855C9260081AC46 /* RootVM.swift in Sources */,
@@ -389,7 +377,7 @@
 				02A975D0285C89570030450E /* Ethereum.swift in Sources */,
 				029E171C28561DE000827717 /* WalletVM.swift in Sources */,
 				029E16FE2855E79900827717 /* OpenSea.swift in Sources */,
-				02B286E02916720C00E879F6 /* TextToImage.swift in Sources */,
+				02B286E02916720C00E879F6 /* ImagesGenerations.swift in Sources */,
 				0233861A2855C57B0081AC46 /* NftWalletApp.swift in Sources */,
 				02D3587528588E4300E44954 /* Button.swift in Sources */,
 				02B286E82916759900E879F6 /* PrepareMintPageView.swift in Sources */,
@@ -397,11 +385,11 @@
 				029E17162856114B00827717 /* AssetListVM.swift in Sources */,
 				02B286E42916750C00E879F6 /* TextToImageView.swift in Sources */,
 				02B286E2291674EC00E879F6 /* TextToImageVM.swift in Sources */,
-				029E170B2855F4A700827717 /* Environment.swift in Sources */,
 				029E16F62855E67600827717 /* NftAsset.swift in Sources */,
 				029E17052855F1A000827717 /* HUD.swift in Sources */,
 				029E17022855EFA900827717 /* NftListView.swift in Sources */,
 				029E16F32855E5DE00827717 /* NftListVM.swift in Sources */,
+				0209E3932A0AA23100F0F79A /* URLDownloader.swift in Sources */,
 				02508A5728584B4900F0FCC0 /* MintNftVM.swift in Sources */,
 				029E1714285610D500827717 /* AssetListView.swift in Sources */,
 				02B286E62916757C00E879F6 /* PrepareMintPageVM.swift in Sources */,
@@ -413,6 +401,7 @@
 /* Begin XCBuildConfiguration section */
 		023386222855C57C0081AC46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0209E38D2A0A970C00F0F79A /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -473,6 +462,7 @@
 		};
 		023386232855C57C0081AC46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0209E38D2A0A970C00F0F79A /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -537,6 +527,7 @@
 				DEVELOPMENT_TEAM = 39KF2M8S75;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NftWallet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "NFTウォレット";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "アルバムの写真を選択します";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -573,6 +564,7 @@
 				DEVELOPMENT_TEAM = 39KF2M8S75;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NftWallet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "NFTウォレット";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "アルバムの写真を選択します";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

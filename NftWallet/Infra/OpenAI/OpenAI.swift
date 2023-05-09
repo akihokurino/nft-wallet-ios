@@ -3,7 +3,7 @@ import Combine
 import Foundation
 import SwiftUI
 
-protocol RinnaProtocol {
+protocol OpenAIProtocol {
     associatedtype ResponseType
 
     var method: HTTPMethod { get }
@@ -13,14 +13,14 @@ protocol RinnaProtocol {
     var allowsConstrainedNetworkAccess: Bool { get }
 }
 
-extension RinnaProtocol {
+extension OpenAIProtocol {
     var baseURL: URL {
-        return URL(string: "https://api.rinna.co.jp")!
+        return URL(string: "https://api.openai.com")!
     }
 
     var headers: [String: String]? {
         return [
-            "Ocp-Apim-Subscription-Key": Env["RINNA_KEY"]!,
+            "Authorization": "Bearer \(Env.openAIApiKey)",
             "Content-Type": "application/json"
         ]
     }
@@ -30,12 +30,12 @@ extension RinnaProtocol {
     }
 }
 
-protocol RinnaRequestProtocol: RinnaProtocol, URLRequestConvertible {
+protocol OpenAIRequestProtocol: OpenAIProtocol, URLRequestConvertible {
     var parameters: Parameters? { get }
     var encoding: URLEncoding { get }
 }
 
-extension RinnaRequestProtocol {
+extension OpenAIRequestProtocol {
     var encoding: URLEncoding {
         return URLEncoding.default
     }
@@ -55,12 +55,12 @@ extension RinnaRequestProtocol {
     }
 }
 
-struct RinnaClient {
+struct OpenAIClient {
     private static let successRange = 200 ..< 300
     private static let contentType = "application/json"
 
     static func publish<T, V>(_ request: T) -> Future<V, AppError>
-        where T: RinnaRequestProtocol, V: Codable, T.ResponseType == V
+        where T: OpenAIRequestProtocol, V: Codable, T.ResponseType == V
     {
         return Future { promise in
             let api = AF.request(request)

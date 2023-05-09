@@ -18,23 +18,18 @@ enum TextToImageVM {
 
             state.shouldShowHUD = true
 
-            return RinnaClient.publish(
-                TextToImageRequest(text: text)
+            return OpenAIClient.publish(
+                ImagesGenerationsRequest(prompt: text)
             )
             .subscribe(on: environment.backgroundQueue)
             .receive(on: environment.mainQueue)
-            .map { $0.image }
+            .flatMap { URLDownloader.download(urlString: $0.data.first!.url) }
             .catchToEffect()
             .map(TextToImageVM.Action.endGenerate)
-        case .endGenerate(.success(let base64)):
+        case .endGenerate(.success(let data)):
             state.shouldShowHUD = false
-            guard let imageData = Data(
-                base64Encoded: base64.replacingOccurrences(of: "data:image/png;base64,", with: ""),
-                options: .ignoreUnknownCharacters) else {
-                return .none
-            }
-            state.inputText = ""
-            return Effect(value: .showMintNftView(UIImage(data: imageData)!))
+            state.inputText = "Van Gogh Starry Night"
+            return Effect(value: .showMintNftView(UIImage(data: data)!))
         case .endGenerate(.failure(_)):
             state.shouldShowHUD = false
             return .none
@@ -51,7 +46,7 @@ extension TextToImageVM {
     enum Action: Equatable {
         case shouldShowHUD(Bool)
         case startGenerate
-        case endGenerate(Result<String, AppError>)
+        case endGenerate(Result<Data, AppError>)
         case showMintNftView(UIImage)
         case inputText(String)
     }
@@ -59,7 +54,7 @@ extension TextToImageVM {
     struct State: Equatable {
         var shouldShowHUD = false
         
-        var inputText = ""
+        var inputText = "Van Gogh Starry Night"
     }
 
     struct Environment {

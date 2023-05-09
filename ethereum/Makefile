@@ -14,5 +14,5 @@ node:
 deploy-local:
 	npx hardhat run scripts/deploy.ts --network hardhat
 
-deploy-goerli:
-	npx hardhat run scripts/deploy.ts --network goerli
+deploy-mumbai:
+	npx hardhat run scripts/deploy.ts --network mumbai

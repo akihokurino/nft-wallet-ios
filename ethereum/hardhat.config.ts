@@ -9,7 +9,7 @@ dotenv.config();
 const config: HardhatUserConfig = {
   solidity: "0.8.17",
   networks: {
-    goerli: {
+    mumbai: {
       url: process.env.CHAIN_URL!,
       accounts: [process.env.WALLET_SECRET!],
     },

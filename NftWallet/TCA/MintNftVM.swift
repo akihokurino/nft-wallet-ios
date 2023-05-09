@@ -14,7 +14,7 @@ enum MintNftVM {
             let data = payload.image.jpegData(compressionQuality: 1.0)!
             return IPFSClient.upload(data: data, filename: name)
                 .flatMap { hash in
-                    let url = "\(Env["IPFS_GATEWAY"]!)/ipfs/\(hash)"
+                    let url = "ipfs://\(hash)"
                     let data = try! JSONEncoder().encode(Metadata(name: name, image: url, description: "nft wallet sample token"))
                     return IPFSClient.upload(data: data, filename: name)
                 }

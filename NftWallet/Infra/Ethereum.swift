@@ -33,7 +33,8 @@ class EthereumManager {
         if let cli = self.cli {
             return cli
         }
-        let web3 = web3(provider: Web3HttpProvider(URL(string: Env["CHAIN_URL"]!)!)!)
+        
+        let web3 = web3(provider: Web3HttpProvider(URL(string: "https://polygon-mumbai.infura.io/v3/\(Env.infuraKey)")!)!)
         let keystoreManager = KeystoreManager([keystore])
         web3.addKeystoreManager(keystoreManager)
         cli = web3
@@ -43,7 +44,7 @@ class EthereumManager {
     func initialize() {
         var privateKey = DataStore.shared.getPrivateKey()
         if privateKey == nil {
-            let privateKeyFromEnv = Env["WALLET_SECRET"] ?? ""
+            let privateKeyFromEnv = Env.walletSecret
             if privateKeyFromEnv.isEmpty {
                 privateKey = SECP256K1.generatePrivateKey()
                 DataStore.shared.savePrivateKey(val: privateKey!)
@@ -63,8 +64,8 @@ class EthereumManager {
     }
 
     func mint(hash: String) -> Future<Void, AppError> {
-        let erc721 = web3Cli().contract(erc721ABI, at: EthereumAddress(Env["NFT_WALLET_721_ADDRESS"]!)!, abiVersion: 2)!
-        let erc1155 = web3Cli().contract(erc1155ABI, at: EthereumAddress(Env["NFT_WALLET_1155_ADDRESS"]!)!, abiVersion: 2)!
+        let erc721 = web3Cli().contract(erc721ABI, at: EthereumAddress(Env.nftWallet721Address)!, abiVersion: 2)!
+        let erc1155 = web3Cli().contract(erc1155ABI, at: EthereumAddress(Env.nftWallet1155Address)!, abiVersion: 2)!
         var options = TransactionOptions.defaultOptions
         options.from = address
         options.gasLimit = .manual(BigUInt(5500000))

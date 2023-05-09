@@ -8,11 +8,11 @@ class IPFSClient {
 
     static func upload(data: Data, filename: String) -> Future<String, AppError> {
         return Future<String, AppError> { promise in
-            let basicAuth = "\(Env["IPFS_KEY"]!):\(Env["IPFS_SECRET"]!)";
+            let basicAuth = "\(Env.ipfsKey):\(Env.ipfsSecret)";
             
             let api = AF.upload(multipartFormData: { multipartFormData in
                 multipartFormData.append(data, withName: "file", fileName: filename, mimeType: "image/jpeg")
-            }, to: "\(Env["IPFS_URL"]!)/api/v0/add", method: .post, headers: ["Authorization": "Basic \(basicAuth.data(using: .utf8)!.base64EncodedString())"])
+            }, to: "https://ipfs.infura.io:5001/api/v0/add", method: .post, headers: ["Authorization": "Basic \(basicAuth.data(using: .utf8)!.base64EncodedString())"])
                 .validate(statusCode: self.successRange)
                 .validate(contentType: [self.contentType])
                 .responseDecodable(of: IPFSResponse.self) { response in

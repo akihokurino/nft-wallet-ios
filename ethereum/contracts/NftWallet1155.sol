@@ -31,21 +31,11 @@ contract NftWallet1155 is ERC1155, Ownable {
         _localTokenId += 1;
     }
 
-    function uri(uint256 tokenId)
-        public
-        view
-        virtual
-        override
-        returns (string memory)
-    {
+    function uri(
+        uint256 tokenId
+    ) public view virtual override returns (string memory) {
         string memory ipfsHash = _token2ipfsHash[tokenId];
 
-        return
-            string(
-                abi.encodePacked(
-                    "https://akiho-playground.infura-ipfs.io/ipfs/",
-                    ipfsHash
-                )
-            );
+        return string(abi.encodePacked("ipfs://", ipfsHash));
     }
 }

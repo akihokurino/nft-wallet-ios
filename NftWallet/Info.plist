@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Wallet Secret</key>
+	<string>$(WALLET_SECRET)</string>
+	<key>Nft Wallet 721 Address</key>
+	<string>$(NFT_WALLET_721_ADDRESS)</string>
+	<key>Nft Wallet 1155 Address</key>
+	<string>$(NFT_WALLET_1155_ADDRESS)</string>
+	<key>Infura Key</key>
+	<string>$(INFURA_KEY)</string>
+	<key>Ipfs Key</key>
+	<string>$(IPFS_KEY)</string>
+	<key>Ipfs Secret</key>
+	<string>$(IPFS_SECRET)</string>
+	<key>OpenAI ApiKey</key>
+	<string>$(OPENAI_API_KEY)</string>
+</dict>
+</plist>
