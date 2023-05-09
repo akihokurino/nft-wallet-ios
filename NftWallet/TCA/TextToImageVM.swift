@@ -22,8 +22,8 @@ enum TextToImageVM {
                 ImagesGenerationsRequest(prompt: text)
             )
             .subscribe(on: environment.backgroundQueue)
-            .receive(on: environment.mainQueue)
             .flatMap { URLDownloader.download(urlString: $0.data.first!.url) }
+            .receive(on: environment.mainQueue)
             .catchToEffect()
             .map(TextToImageVM.Action.endGenerate)
         case .endGenerate(.success(let data)):
