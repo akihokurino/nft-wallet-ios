@@ -46,7 +46,7 @@ extension OpenSeaRequestProtocol {
         if let params = parameters {
             urlRequest = try encoding.encode(urlRequest, with: params)
         }
-
+        
         return urlRequest
     }
 }

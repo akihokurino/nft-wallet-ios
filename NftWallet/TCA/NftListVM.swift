@@ -15,13 +15,12 @@ enum NftListVM {
                 return OpenSeaClient.publish(
                     GetNftAssetsRequest(
                         owner: EthereumManager.shared.address,
-                        offset: 0,
-                        limit: 200
+                        limit: 50
                     )
                 )
                 .subscribe(on: environment.backgroundQueue)
                 .receive(on: environment.mainQueue)
-                .map { $0.assets.map { NftAsset(data: $0) } }
+                .map { $0.nfts.map { NftAsset(data: $0) } }
                 .catchToEffect()
                 .map(NftListVM.Action.endInitialize)
             case .endInitialize(.success(let assets)):
@@ -39,13 +38,12 @@ enum NftListVM {
                 return OpenSeaClient.publish(
                     GetNftAssetsRequest(
                         owner: EthereumManager.shared.address,
-                        offset: 0,
-                        limit: 200
+                        limit: 50
                     )
                 )
                 .subscribe(on: environment.backgroundQueue)
                 .receive(on: environment.mainQueue)
-                .map { $0.assets.map { NftAsset(data: $0) } }
+                .map { $0.nfts.map { NftAsset(data: $0) } }
                 .catchToEffect()
                 .map(NftListVM.Action.endRefresh)
             case .endRefresh(.success(let assets)):

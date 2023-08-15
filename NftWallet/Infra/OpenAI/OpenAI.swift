@@ -71,6 +71,7 @@ struct OpenAIClient {
                     case let .success(result):
                         promise(.success(result))
                     case let .failure(error):
+                        print("OpenAIエラー \(error.localizedDescription)")
                         promise(.failure(AppError.plain(error.errorDescription ?? "エラーが発生しました")))
                     }
                 }

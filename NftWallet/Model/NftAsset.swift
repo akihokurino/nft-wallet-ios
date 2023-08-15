@@ -1,7 +1,7 @@
 import Foundation
 
 struct NftAsset: Equatable, Identifiable, Hashable {
-    var id: Int {
+    var id: String {
         return data.id
     }
 
